@@ -8,51 +8,72 @@
   --card:#0d1526;
 }
 
-/* Reset básico */
-*{box-sizing:border-box}
+/* Reset */
+*{ box-sizing:border-box; }
 html,body{
   height:100%;
   margin:0;
-  font-family:Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  background:linear-gradient(180deg,var(--navy),var(--black));
-  color:var(--white);
-  -webkit-font-smoothing:antialiased;
+  font-family: Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg,var(--navy),var(--black));
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
 }
-a{color:inherit;text-decoration:none}
+a{ color:inherit; text-decoration:none; }
 
-/* Layout container */
+/* App container */
 #app{
-  max-width:1200px;
-  margin:90px auto 40px;
-  padding:12px;
+  max-width: 1280px;
+  margin: 40px auto 28px;
+  padding: 12px;
 }
 
-/* GRID PRINCIPAL */
-.grid3{
+/* =========================
+   GRID (3 columns)
+   ========================= */
+.dashboard-grid{
   display:grid;
-  grid-template-columns:1fr 2fr 1fr;
-  grid-auto-rows: min-content;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto;
   gap:18px;
+  align-items: stretch;
 }
 
-/* Cards */
-.cell{
-  background:var(--card);
-  border:1px solid rgba(110,140,180,0.06);
-  border-radius:12px;
-  padding:12px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.4);
-}
-.cell-small{min-height:140px}
-.cell-medium{min-height:220px}
-.cell-large{
-  grid-row:1 / span 2;
-  grid-column:2 / span 2;
-  min-height:420px;
-  padding:18px;
+/* Place the main blocks */
+#weather-card  { grid-column: 1; grid-row: 1; }
+#calendar-card { grid-column: 1; grid-row: 2; }
+
+#clock-card    { grid-column: 2; grid-row: 1 / span 2; }
+
+.right-column  { grid-column: 3; grid-row: 1 / span 2; }
+
+/* Right column becomes a vertical stack */
+.right-column{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  min-width: 0;
 }
 
-/* card-inner PADRÃO (o certo) */
+/* Optional: keep right column cards visually “compact” */
+.card-links,
+.card-shortcuts{
+  padding: 12px;
+}
+.card-chooser{
+  padding: 14px;
+}
+
+/* =========================
+   CARD BASE
+   ========================= */
+.card{
+  background: var(--card);
+  border: 1px solid rgba(110,140,180,0.06);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+
 .card-inner{
   width:100%;
   display:flex;
@@ -61,83 +82,118 @@ a{color:inherit;text-decoration:none}
   align-items:flex-start;
   justify-content:flex-start;
 }
-.card-inner h3,
-.card-inner p{
-  margin:3px;
+
+.card-title{
+  margin:0;
+  color:#fff;
+  font-size: 1rem;
 }
 
-.card h3{margin:0;color:#ffffff}
+.is-center{
+  align-items:center;
+  text-align:center;
+}
 
-/* RELÓGIO GIGANTE */
-.clock-card{
+/* =========================
+   CLOCK
+   ========================= */
+.card-clock{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(135deg, rgba(11,23,38,0.65), rgba(7,12,20,0.6));
-  backdrop-filter:blur(6px);
-}
-.clock-inner{text-align:center}
-
-.giant-clock{
-  margin-bottom:19px;
-  font-size:clamp(48px, 12vw, 180px);
-  line-height:.9;
-  font-weight:800;
-  letter-spacing:2px;
-  color:var(--white);
-  text-shadow:0 8px 30px rgba(43,111,179,0.12);
+  background: linear-gradient(135deg, rgba(11,23,38,0.65), rgba(7,12,20,0.6));
+  backdrop-filter: blur(6px);
 }
 
-.subdate{
-  margin-top:6px;
-  color:var(--muted);
-  font-size:clamp(14px, 1.2vw, 22px);
-  text-transform:lowercase;
+.clock-inner{
+  text-align:center;
 }
 
-/* Centralizar clima e relógio */
-#clock-card .card-inner,
+.clock-time{
+  margin-bottom: 16px;
+  font-size: clamp(42px, 9vw, 120px);
+  line-height: .9;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--white);
+  text-shadow: 0 8px 30px rgba(43,111,179,0.12);
+}
+
+.clock-date{
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: clamp(14px, 1.2vw, 22px);
+  text-transform: lowercase;
+}
+
+/* =========================
+   WEATHER (centered)
+   ========================= */
 #weather-card .card-inner{
-  height:100%;
-  align-items:center;
-  justify-content:flex-start;
-  text-align:center;
+  min-height: 140px;
+  justify-content:center;
 }
 
-/* WEATHER */
-#weather-card h3{font-size:1rem}
 #weather-info{
-  font-size:clamp(14px, 1.2vw, 20px);
+  width:100%;
+  text-align:center;
+  font-size: clamp(14px, 1.2vw, 20px);
 }
 
-/* CALENDÁRIO */
+/* =========================
+   CALENDAR
+   ========================= */
 #calendar-card .card-inner{
-  align-items:center;
-  justify-content:flex-start;
   text-align:center;
+  align-items:center;
   gap:8px;
 }
 
-.calendar{
-  width:100%;
-}
+.calendar{ width:100%; }
 
 .calendar .month{
   font-weight:600;
   color:var(--muted);
-  margin-bottom:19px;
+  margin-bottom: 14px;
 }
 
 .calendar-grid{
-  margin-top:15px;
+  margin-top: 12px;
   display:grid;
-  grid-template-columns:repeat(7,1fr);
+  grid-template-columns: repeat(7,1fr);
   gap:7px;
 }
 
-.day-name{
-  margin-bottom:6px;
+/* Calendar meta (month/day/week) */
+.calendar-meta{
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  text-align: center;
 }
+
+.calendar-meta p{
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Meta do calendário (mês/dia/semana) */
+#monthYear,
+#diaDoAno,
+#semanaAtual{
+  color: var(--white);
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+  text-align: center;
+  opacity: 0.95;
+}
+
+
+.day-name{ margin-bottom:6px; }
 
 .day, .day-name{
   background:#1c2230;
@@ -146,7 +202,7 @@ a{color:inherit;text-decoration:none}
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:1.2rem;
+  font-size:1.1rem;
   min-width:45px;
   min-height:45px;
 }
@@ -159,101 +215,37 @@ a{color:inherit;text-decoration:none}
 .day:nth-child(7n+6), .day-name:nth-child(7n+6){ background:#154471 }
 .day:nth-child(7n+7), .day-name:nth-child(7n+7){ background:#124b7e }
 
-
 .today{
   transform: scale(1.05);
   background: #3b82f6 !important;
-  color: #041226; 
-  font-weight: bold;
+  color: #041226;
   font-weight: 700;
   box-shadow: 0 10px 21px rgba(109,170,255,0.45);
 }
 
-/* BALÕES */
-.chooser{width:100%}
-.chooser-title{
-  text-align: center;
-  font-weight:700;
-  color:#ffffff;
-  margin-bottom:1px;
-}
-
-.baloes{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+/* Countdown box (NOT another card) */
+.countdown-box{
   width:100%;
-  justify-content:center;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.04);
 }
 
-.balao{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  width:42%;
-  max-width:220px;
-  min-height:120px;
-  border-radius:24px;
-  background:linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-  border:1px solid rgba(255,255,255,0.04);
-  padding:12px;
-  text-align:center;
-  transition:transform .22s ease, box-shadow .22s ease;
+.countdown-box p{
+  margin: 0;
+  font-size: 0.9rem;
+  color: #9dbff9;
 }
 
-.balao:hover{
-  transform:translateY(-6px);
-  box-shadow:0 18px 40px rgba(11,45,88,0.35);
-}
-
-.balao-icone{
-  width:72px;
-  height:72px;
-  border-radius:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,#9dbff9,#ffffff);
-  color:#001;
-  font-size:28px;
-  margin-bottom:8px;
-  box-shadow:0 8px 30px rgba(43,111,179,0.12);
-}
-
-.balao-titulo{
-  font-weight:700;
-  margin-bottom:6px;
-}
-
-.balao-desc{
-  font-size:0.9rem;
-  color:var(--muted);
-}
-
-/* LINKS LIST + CENTRALIZAÇÃO */
-#links-1 .card-inner,
-#links-2 .card-inner{
-  align-items:center;
-  justify-content:flex-start;
-  text-align:center;
-  height:100%;
-}
-
-/* área que ocupa o espaço restante */
-.links-content{
-  flex:1;
-  display:flex;
-  align-items:center;     /* central vertical */
-  justify-content:center; /* central horizontal */
-  width:100%;
-}
-
-/* lista em si */
-.links-list{
+/* =========================
+   LINKS / SHORTCUTS LIST
+   ========================= */
+.link-list{
   list-style:none;
   padding:0;
-  margin:0;
+  margin: 0;
   display:flex;
   flex-direction:column;
   gap:6px;
@@ -261,87 +253,483 @@ a{color:inherit;text-decoration:none}
   text-align:center;
 }
 
-/* FOOTER */
+.link-list a{
+  opacity: 0.95;
+}
+
+.link-list a:hover{
+  color: #9dbff9;
+}
+
+.link-list.is-compact{
+  gap:5px;
+}
+
+/* Remove “buracão”/stretch interno */
+.card-links .card-inner,
+.card-shortcuts .card-inner{
+  align-items:center;
+  text-align:center;
+  gap:10px;
+}
+
+/* =========================
+   CHOOSER (stacked)
+   ========================= */
+.card-chooser .card-inner{
+  gap: 12px;
+}
+
+.chooser-stack{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  width:100%;
+}
+
+/* The button cards */
+.chooser-item{
+  width:100%;
+  min-height: 120px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 12px;
+  text-align:center;
+  transition: transform .22s ease, box-shadow .22s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.chooser-item:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(11,45,88,0.35);
+}
+
+.chooser-icon{
+  width:64px;
+  height:64px;
+  border-radius: 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(135deg,#9dbff9,#ffffff);
+  color:#001;
+  font-size:24px;
+  margin-bottom:8px;
+  box-shadow: 0 8px 30px rgba(43,111,179,0.12);
+}
+
+.chooser-title{
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.chooser-desc{
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
 .footer{
-  margin-top:22px;
+  margin-top: 18px;
   text-align:center;
-  color:var(--muted);
+  color: var(--muted);
 }
 
-/* NEWS / SOBRE */
-.page .container{
-  max-width:1100px;
-  margin:90px auto;
-  padding:12px;
+/* =========================
+   TOP RIGHT MENU (Hamburger)
+   ========================= */
+
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 12px 8px;
+  margin-bottom: 10px;
+  background: linear-gradient(180deg, rgba(4,18,38,0.9), rgba(0,0,0,0));
+  backdrop-filter: blur(10px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding: 8px 10px;
+  border-radius: 12px;
+}
+
+.brand-logo{
+  width:34px;
+  height:34px;
+  border-radius: 10px;
+}
+
+.brand-text{
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: var(--white);
+}
+
+.menu-btn{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(13,21,38,0.8);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  cursor:pointer;
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:18px;
+  place-items:center;
 }
 
-.panel .card{
-  padding:14px;
-  border-radius:10px;
-  background:linear-gradient(180deg, rgba(13,21,38,0.6), rgba(8,12,18,0.45));
-  border:1px solid rgba(255,255,255,0.03);
+.menu-btn:hover{
+  transform: translateY(-1px);
 }
 
-/* RESPONSIVO */
-@media (max-width:1000px){
-  .grid3{
-    grid-template-columns:1fr;
-    grid-template-rows:repeat(6,auto);
-  }
-  .cell-large{
-    grid-row:auto;
-    grid-column:auto;
-  }
-  .balao{width:calc(50% - 8px)}
+.menu-icon{
+  width: 18px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 10px;
+  position: relative;
+  display:block;
 }
 
-@media (max-width:480px){
-  .balao{width:100%}
-  .app{padding:8px}
+.menu-icon::before,
+.menu-icon::after{
+  content:"";
+  position:absolute;
+  left:0;
+  width: 18px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 10px;
 }
 
-/* COUNTDOWN CARD */
-#countdown-card .card-inner{
+.menu-icon::before{ top:-6px; }
+.menu-icon::after{ top:6px; }
+
+/* Overlay */
+.menu-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(0,0,0,0.55);
+}
+
+/* Panel */
+.menu-panel{
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: min(320px, calc(100vw - 28px));
+  z-index: 70;
+  border-radius: 18px;
+  background: rgba(13,21,38,0.92);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+  padding: 14px;
+  backdrop-filter: blur(12px);
+
+  /* animação */
+  transform: translateY(-6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 180ms ease;
+}
+
+.menu-panel.is-open{
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-panel-head{
+  display:flex;
   align-items:center;
-  justify-content:center;
-  text-align:center;
-  gap:8px;
+  justify-content:space-between;
+  margin-bottom: 10px;
 }
 
-#countdown-card p{
-  margin:0;
-  font-size:0.95rem;
-  color:#9dbff9;
+.menu-title{
+  font-weight: 800;
+  color: var(--white);
 }
 
-#countdown-card p strong{
-  color:#ffffff;
-  font-weight:600;
+.menu-close{
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.06);
+  color: var(--white);
+  cursor:pointer;
 }
 
-.countdown-inner{
+.menu-link{
+  display:flex;
   align-items:center;
-  justify-content:center;
-  text-align:center;
-  gap:6px;
-  font-size:0.95rem;
+  gap:10px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  margin-top: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--white);
+  font-weight: 600;
 }
 
-.countdown-inner p{
-  margin:0;
-  color:var(--white);
+.menu-link:hover{
+  background: rgba(255,255,255,0.07);
+  transform: translateY(-1px);
 }
 
-.countdown-inner strong{
-  color:#9dbff9;
-  font-weight:700;
+.menu-link.subtle{
+  opacity: 0.9;
 }
 
-.countdown-inner .dev{
-  margin-top:6px;
-  font-size:0.8rem;
-  color:var(--muted);
+.menu-sep{
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 12px 0 6px;
+}
+
+/* =========================
+   NEWS PAGE (isolado)
+   ========================= */
+
+.news-page{
+  min-height: 100%;
+}
+
+/* container da página news */
+.news-wrap{
+  max-width: 1680px;            /* era 1280px */
+  width: min(1680px, 96vw);     /* usa quase a tela toda */
+  margin: 86px auto 22px;
+  padding: 12px;
+}
+
+.news-title{
+  margin: 0;
+  font-size: clamp(22px, 2.2vw, 34px);
+  letter-spacing: 0.2px;
+}
+
+.news-subtitle{
+  margin: 8px 0 18px;
+  color: var(--muted);
+}
+
+/* GRID: esquerda (weather+calendar) / meio (2 news lado a lado) / direita (currencies) */
+.news-grid{
+  display: grid;
+  grid-template-columns: 360px 1fr 320px;
+  gap: 18px;
+  align-items: start;
+  justify-content: center;
+  justify-items: stretch; /* garante que cada coluna usa o espaço certinho */
+}
+
+/* Colunas padrão (left e right empilham cards) */
+.news-col{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Coluna do meio: 2 cards lado a lado (Coritiba e Santos) */
+.news-col-news{
+  display: grid;
+  grid-template-columns: minmax(340px, 1fr) minmax(340px, 1fr);
+  gap: 18px;
+}
+
+/* Cards padrão */
+.news-card{
+  background: linear-gradient(180deg, rgba(13,21,38,0.62), rgba(8,12,18,0.42));
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 10px 34px rgba(0,0,0,0.45);
+
+  /* Centralizar conteúdo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.news-h2{
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  letter-spacing: 0.2px;
+}
+
+.news-muted{
+  color: var(--muted);
+}
+
+/* Meta do calendário (mês/dia/semana etc) */
+.news-meta{
+  width: 100%;
+  margin-top: 10px;
+}
+.news-meta p{
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Lista de notícias */
+.news-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+/* limita a largura do texto pra não virar “textão” */
+.news-list li{
+  max-width: 52ch;
+}
+
+.news-list a{
+  opacity: 0.95;
+  border-bottom: 1px dashed rgba(109,170,255,0.35);
+}
+
+.news-list a:hover{
+  color: #9dbff9;
+  opacity: 1;
+}
+
+/* =========================
+   AUMENTAR SÓ O NEWS (Coritiba + Santos)
+   ========================= */
+.news-col-news .news-card{
+  padding: 26px;        /* mais “balão” */
+  border-radius: 18px;  /* mais arredondado */
+  min-height: clamp(420px, 55vh, 640px);    /* deixa os dois grandões e alinhados */
+  backdrop-filter: blur(8px);
+}
+
+.news-col-news .news-h2{
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+}
+
+.news-col-news .news-list{
+  gap: 14px;
+}
+
+.news-col-news .news-list li{
+  max-width: 60ch;
+}
+
+.news-col-news .news-list a{
+  font-size: 1.18rem;
+  line-height: 1.7;
+}
+
+/* =========================================
+   FIX: calendário não vaza dentro do card (NEWS)
+   ========================================= */
+
+/* garante que o card "segure" o conteúdo */
+.news-page #calendar-card,
+.news-page #calendar-card .card-inner{
+  width: 100%;
+  overflow: hidden;
+}
+
+/* o container do calendário não pode passar da largura do card */
+.news-page #calendar{
+  width: 100%;
+  max-width: 100%;
+}
+
+/* grid do calendário vira "elástica" */
+.news-page #calendar .calendar-grid{
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;                 /* pode ajustar */
+  justify-items: center;
+}
+
+/* quadradinhos do dia: tiramos min-width/min-height que estourava */
+.news-page #calendar .day,
+.news-page #calendar .day-name{
+  min-width: 0 !important;
+  min-height: 0 !important;
+
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.95rem;       /* ajusta se quiser */
+  border-radius: 6px;
+}
+
+/* título do mês (o <h3> que teu JS injeta) */
+.news-page #calendar h3{
+  margin: 0 0 12px;
+  color: var(--white);      /* branco */
+  text-transform: capitalize;
+}
+
+
+/* =========================
+   FOOTER do news
+   ========================= */
+.news-footer{
+  max-width: 1280px;
+  margin: 10px auto 26px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.news-footer-dot{
+  opacity: 0.45;
+}
+
+/* =========================
+   RESPONSIVO (apenas NEWS)
+   ========================= */
+@media (max-width: 1100px){
+  .news-grid{
+    grid-template-columns: 1fr; /* vira 1 coluna */
+  }
+
+  .news-col-news{
+    grid-template-columns: 1fr; /* Coritiba e Santos um embaixo do outro */
+  }
+
+  .news-col-news .news-card{
+    min-height: auto; /* não força altura gigante no mobile */
+    padding: 20px;
+  }
 }

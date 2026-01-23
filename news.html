@@ -3,70 +3,105 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Arrua — Painel / News</title>
+  <title>Arrua — Panel / News</title>
   <link rel="icon" href="la.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <div class="page">
-    <header class="topbar">
-      <div class="brand">Arrua • Painel</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="sobre.html">Sobre</a>
-      </nav>
-    </header>
 
-    <main class="panel container">
-      <section class="panel-col">
-        <div class="card">
-          <h2>Clima</h2>
-          <div id="weather-info">carregando...</div>
-        </div>
+<body class="news-page">
 
-        <div class="card">
-          <h2>Calendário</h2>
-          <div id="calendar-panel"></div>
-        </div>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Go to Home">
+      <img class="brand-logo" src="la.png" alt="LA" />
+      <span class="brand-text">Arrua</span>
+      <span class="brand-badge">Panel</span>
+    </a>
 
-        <div class="card">
-          <h2>Contadores</h2>
-          <div id="contador">Carregando...</div>
-        </div>
+    <button class="menu-btn" id="menuBtn"
+      aria-label="Open menu"
+      aria-controls="menuPanel"
+      aria-expanded="false">
+      <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <!-- Overlay -->
+  <div class="menu-overlay" id="menuOverlay" hidden></div>
+
+  <!-- Menu panel -->
+  <nav class="menu-panel" id="menuPanel" aria-label="Site menu" hidden>
+    <div class="menu-panel-head">
+      <div class="menu-title">Menu</div>
+      <button class="menu-close" id="menuClose" aria-label="Close menu">✕</button>
+    </div>
+
+    <a class="menu-link" href="index.html">🏠 Home</a>
+    <a class="menu-link" href="news.html">📰 Panel / News</a>
+    <a class="menu-link" href="sobre.html">👤 About / Resume</a>
+
+    <div class="menu-sep"></div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="news-wrap" id="app">
+    <h1 class="news-title">Panel / News</h1>
+    <p class="news-subtitle">Clima, calendário e notícias rápidas.</p>
+
+    <div class="news-grid">
+
+      <!-- LEFT COLUMN -->
+      <section class="news-col">
+        <article class="news-card">
+          <h2 class="news-h2">Weather</h2>
+          <div id="weather-info" class="news-muted">Loading...</div>
+        </article>
+
+        <article class="news-card">
+          <h2 class="news-h2">Calendar</h2>
+          <div id="calendar" class="calendar"></div>
+
+          <div class="news-meta">
+            <p id="diaDoAno"></p>
+            <p id="semanaAtual"></p>
+          </div>
+        </article>
       </section>
 
-      <section class="panel-col">
-        <div class="card">
-          <h2>Notícias — Coritiba</h2>
-          <ul id="news-list-coritiba"><li>carregando...</li></ul>
-        </div>
-
-        <div class="card">
-          <h2>Notícias — Santos</h2>
-          <ul id="news-list-santos"><li>carregando...</li></ul>
-        </div>
-      </section>
-
-      <section class="panel-col">
-        <div class="card">
-          <h2>Moedas (em breve)</h2>
-          <div id="currencies">Em breve — espaço reservado</div>
-        </div>
-
-        <div class="card">
-          <h2>Links rápidos</h2>
-          <ul class="links-list">
-            <li><a href="#">Planilhas</a></li>
-            <li><a href="#">Formulários</a></li>
+      <!-- MIDDLE COLUMN -->
+      <section class="news-col news-col-news">
+        <article class="news-card">
+          <h2 class="news-h2">News — Coritiba</h2>
+          <ul id="news-list-coritiba" class="news-list">
+            <li class="news-muted">Loading...</li>
           </ul>
-        </div>
-      </section>
-    </main>
+        </article>
 
-    <footer class="footer">
-      <a href="index.html" class="btn-link">← Voltar</a>
-    </footer>
-  </div>
+        <article class="news-card">
+          <h2 class="news-h2">News — Santos</h2>
+          <ul id="news-list-santos" class="news-list">
+            <li class="news-muted">Loading...</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- RIGHT COLUMN -->
+      <section class="news-col">
+        <article class="news-card">
+          <h2 class="news-h2">Currencies</h2>
+          <div id="currencies" class="news-muted">Soon — reserved space</div>
+        </article>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="news-footer">
+    <a href="index.html" class="btn-link">← Back</a>
+    <span class="news-footer-dot">•</span>
+    <span>Built by Arrua 🚀</span>
+  </footer>
 
   <script src="script.js"></script>
 </body>

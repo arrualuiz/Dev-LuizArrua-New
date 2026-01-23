@@ -1,70 +1,152 @@
-// ====== CONFIG ======
-const TIMEZONE = 'America/Sao_Paulo';
-const NEWS_API_KEY = '75438efede234902a8585ea236ca1889'; 
+// =====================
+// CONFIG (pt-BR)
+// =====================
+const TIMEZONE = "America/Sao_Paulo";
+const NEWS_API_KEY = "75438efede234902a8585ea236ca1889";
 
-// ====== RELÓGIO E DATA ======
-function updateClock(){
+// Helpers (em inglês)
+const $ = (id) => document.getElementById(id);
+const exists = (id) => !!$(id);
+
+// =====================
+// MENU (funciona em todas as páginas)
+// =====================
+(() => {
+  const btn = $("menuBtn");
+  const panel = $("menuPanel");
+  const overlay = $("menuOverlay");
+  const closeBtn = $("menuClose");
+
+  // Se a página não tem menu, só sai fora
+  if (!btn || !panel || !overlay || !closeBtn) return;
+
+  const openMenu = () => {
+    panel.hidden = false;
+    overlay.hidden = false;
+
+    // Dá 1 frame pra transição pegar
+    requestAnimationFrame(() => panel.classList.add("is-open"));
+
+    btn.setAttribute("aria-expanded", "true");
+  };
+
+  const closeMenu = () => {
+    panel.classList.remove("is-open");
+    btn.setAttribute("aria-expanded", "false");
+
+    // Espera a transição e esconde de verdade
+    setTimeout(() => {
+      panel.hidden = true;
+      overlay.hidden = true;
+    }, 180);
+  };
+
+  btn.addEventListener("click", () => {
+    const isOpen = panel.classList.contains("is-open");
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && panel.classList.contains("is-open")) closeMenu();
+  });
+})();
+
+// =====================
+// CLOCK + DATE (só se existir)
+// =====================
+function updateClock() {
+  const clockEl = $("clock");
+  const dateEl = $("date");
+  if (!clockEl || !dateEl) return;
+
   const now = new Date();
-  const optsTime = { timeZone: 'America/Sao_Paulo', hour:'2-digit', minute:'2-digit', second:'2-digit' };
-  const optsDate = { timeZone: 'America/Sao_Paulo', weekday:'long', day:'numeric', month:'long' };
-  const hora = now.toLocaleTimeString('pt-BR', optsTime);
-  const data = now.toLocaleDateString('pt-BR', optsDate).toLowerCase();
-  document.getElementById('clock').textContent = hora;
-  document.getElementById('date').textContent = data;
-}
-setInterval(updateClock, 1000);
-updateClock();
 
-// ====== CALENDÁRIO ======
-function generateCalendar(){
-  const calendar = document.getElementById('calendar');
+  const timeOptions = {
+    timeZone: TIMEZONE,
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  };
+
+  const dateOptions = {
+    timeZone: TIMEZONE,
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  };
+
+  clockEl.textContent = now.toLocaleTimeString("pt-BR", timeOptions);
+  dateEl.textContent = now.toLocaleDateString("pt-BR", dateOptions).toLowerCase();
+}
+
+if (exists("clock") && exists("date")) {
+  updateClock();
+  setInterval(updateClock, 1000);
+}
+
+// =====================
+// CALENDAR (só se existir)
+// =====================
+function generateCalendar() {
+  const calendarEl = $("calendar");
+  if (!calendarEl) return;
+
   const now = new Date();
   const year = now.getFullYear();
   const month = now.getMonth();
 
-  const monthName = now.toLocaleString('pt-BR', {month:'long'});
+  const monthName = now.toLocaleString("pt-BR", { month: "long" });
   const monthYearHeader = `${monthName} ${year}`;
 
-  // first day of month (0=Sun..6=Sat)
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month+1, 0).getDate();
+  const firstDay = new Date(year, month, 1).getDay(); // 0=Dom..6=Sáb
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
 
   let html = `<h3 style="text-transform:capitalize;">${monthYearHeader}</h3>`;
-  html += '<div class="calendar-grid">';
-  const dayNames = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
-  dayNames.forEach(d=> html += `<div class="day-name">${d}</div>`);
+  html += `<div class="calendar-grid">`;
 
-  // leading empty slots for days before the 1st (firstDay already 0=Sunday)
-  for(let i=0;i<firstDay;i++) html += '<div class="day empty"></div>';
+  const dayNames = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+  dayNames.forEach((d) => (html += `<div class="day-name">${d}</div>`));
 
-  for(let d=1; d<=daysInMonth; d++){
+  // Espaços vazios antes do dia 1
+  for (let i = 0; i < firstDay; i++) html += `<div class="day empty"></div>`;
+
+  // Dias do mês
+  for (let d = 1; d <= daysInMonth; d++) {
     const isToday = d === now.getDate();
-    html += `<div class="day ${isToday ? 'today' : ''}">${d}</div>`;
+    html += `<div class="day ${isToday ? "today" : ""}">${d}</div>`;
   }
 
-  html += '</div>';
-  // footer info with month/year
-  html += `<div style="margin-top:12px;color:var(--muted);text-align:center;">Mês: ${monthName} • Ano: ${year}</div>`;
-  calendar.innerHTML = html;
+  html += `</div>`;
+  calendarEl.innerHTML = html;
 }
-generateCalendar();
 
-// regenerate at midnight to update day/month
-function scheduleMidnightRefresh(){
+// Atualiza calendário/relógio na virada do dia
+function scheduleMidnightRefresh() {
+  if (!exists("calendar") && !exists("clock")) return;
+
   const now = new Date();
-  const msUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 0, 0, 5) - now;
-  setTimeout(()=>{
+  const msUntilMidnight =
+    new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 5) - now;
+
+  setTimeout(() => {
     updateClock();
     generateCalendar();
+    renderDateMeta(); // atualiza dia do ano/semana/mês-ano também
     scheduleMidnightRefresh();
   }, msUntilMidnight);
 }
-scheduleMidnightRefresh();
 
-// ====== helpers ======
-function capitalize(s){ if(!s) return s; return s.charAt(0).toUpperCase()+s.slice(1); }
-function escapeHtml(str){ return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+if (exists("calendar")) {
+  generateCalendar();
+  scheduleMidnightRefresh();
+}
 
+// =====================
+// DATE META (dia do ano / semana / mês-ano) (só se existir)
+// =====================
 function getDayOfYear(date) {
   const start = new Date(date.getFullYear(), 0, 0);
   const diff = date - start;
@@ -72,218 +154,223 @@ function getDayOfYear(date) {
   return Math.floor(diff / oneDay);
 }
 
-function mostrarDiaDoAno() {
-  const hoje = new Date();
-  const dia = getDayOfYear(hoje);
-
-  // total de dias do ano (bissexto ou não)
-  const total = new Date(hoje.getFullYear(), 1, 29).getMonth() === 1 ? 366 : 365;
-
-  document.getElementById("diaDoAno").textContent =
-    `Dia ${dia} de ${total} do ano`;
-}
-
-mostrarDiaDoAno();
-
-
 function getWeekNumber(date) {
   const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
   const pastDaysOfYear = (date - firstDayOfYear) / 86400000;
   return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
 }
 
-function mostrarSemanaAtual() {
-  const hoje = new Date();
-  const semana = getWeekNumber(hoje);
-  document.getElementById("semanaAtual").textContent = `Semana ${semana} de 52 do ano`;
-}
+function renderDateMeta() {
+  const now = new Date();
 
-mostrarSemanaAtual();
-
-// ====== CONTAGEM REGRESSIVA PARA 2026 ======
-function atualizarContagemRegressiva() {
-  const destino = new Date("2025-12-31T23:59:59");
-  const agora = new Date();
-  const diff = destino - agora;
-
-  if (diff <= 0) {
-    document.getElementById("contador").textContent = "🎉 Feliz 2026!";
-    return;
+  // Dia do ano
+  const dayOfYearEl = $("diaDoAno");
+  if (dayOfYearEl) {
+    const day = getDayOfYear(now);
+    const total = new Date(now.getFullYear(), 1, 29).getMonth() === 1 ? 366 : 365;
+    dayOfYearEl.textContent = `Dia ${day} de ${total} do ano`;
   }
 
-  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutos = Math.floor((diff / (1000 * 60)) % 60);
-  const segundos = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("contador").textContent = 
-    `Faltam ${dias}d ${horas}h ${minutos}m ${segundos}s para 2026 🎆`;
-}
-
-setInterval(atualizarContagemRegressiva, 1000);
-atualizarContagemRegressiva();
-
-// ====== CONTAGEM REGRESSIVA ANIVERSÁRIO BIA ======
-function atualizarAniversarioBia() {
-  const destino = new Date("2025-12-29T23:59:59");
-  const agora = new Date();
-  const diff = destino - agora;
-
-  if (diff <= 0) {
-    document.getElementById("contadorBia").textContent = "🎉 Parabéns meu amor!";
-    return;
+  // Semana do ano
+  const weekEl = $("semanaAtual");
+  if (weekEl) {
+    const week = getWeekNumber(now);
+    weekEl.textContent = `Semana ${week} de 52 do ano`;
   }
 
-  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutos = Math.floor((diff / (1000 * 60)) % 60);
-  const segundos = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("contadorBia").textContent = 
-    `Faltam ${dias}d ${horas}h ${minutos}m ${segundos}s para aniversário da Bia 🤍`;
-}
-
-setInterval(atualizarAniversarioBia, 1000);
-atualizarAniversarioBia();
-
-// ====== CONTAGEM REGRESSIVA ANIVERSÁRIO LUIZ ======
-function atualizarAniversarioLuiz() {
-  const destino = new Date("2026-01-07T23:59:59");
-  const agora = new Date();
-  const diff = destino - agora;
-
-  if (diff <= 0) {
-    document.getElementById("contadorLuiz").textContent = "🎉 Parabéns Luiz!";
-    return;
+  // Mês / Ano (extra)
+  const monthYearEl = $("monthYear");
+  if (monthYearEl) {
+    const monthNameRaw = now.toLocaleString("pt-BR", { month: "long" });
+    const monthName = monthNameRaw.charAt(0).toUpperCase() + monthNameRaw.slice(1); // <<< aqui
+    const year = now.getFullYear();
+    monthYearEl.textContent = `Mês ${monthName} de ${year}`;
   }
-
-  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutos = Math.floor((diff / (1000 * 60)) % 60);
-  const segundos = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("contadorLuiz").textContent = 
-    `Faltam ${dias}d ${horas}h ${minutos}m ${segundos}s para meu aniversário 🎉`;
 }
 
-setInterval(atualizarAniversarioLuiz, 1000);
-atualizarAniversarioLuiz();
+renderDateMeta();
 
-// ====== WEATHER (Open-Meteo) ======
+// =====================
+// COUNTDOWNS (só se existir cada id)
+// =====================
+function createCountdown(targetISO, elId, endMessage, templateFn) {
+  const el = $(elId);
+  if (!el) return;
+
+  const tick = () => {
+    const target = new Date(targetISO);
+    const now = new Date();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      el.textContent = endMessage;
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    el.textContent = templateFn(days, hours, minutes, seconds);
+  };
+
+  tick();
+  setInterval(tick, 1000);
+}
+
+createCountdown(
+  "2026-12-31T23:59:59",
+  "contador",
+  "🎉 Feliz 2027!",
+  (d, h, m, s) => `Faltam ${d}d ${h}h ${m}m ${s}s para 2027 🎆`
+);
+
+createCountdown(
+  "2026-12-29T23:59:59",
+  "contadorBia",
+  "🎉 Parabéns meu amor!",
+  (d, h, m, s) => `Faltam ${d}d ${h}h ${m}m ${s}s para aniversário da Bia 🤍`
+);
+
+createCountdown(
+  "2027-01-07T23:59:59",
+  "contadorLuiz",
+  "🎉 Parabéns Luiz!",
+  (d, h, m, s) => `Faltam ${d}d ${h}h ${m}m ${s}s para meu aniversário 🎉`
+);
+
+// =====================
+// WEATHER (Open-Meteo) (só se existir)
+// - sem inline style: usa classes do CSS
+// =====================
+function weatherCodeToText(code) {
+  const map = {
+    0: "céu limpo",
+    1: "principalmente limpo",
+    2: "parcialmente nublado",
+    3: "nublado",
+    45: "névoa",
+    48: "névoa com cristais",
+    51: "chuvisco leve",
+    53: "chuvisco moderado",
+    55: "chuvisco forte",
+    61: "chuva fraca",
+    63: "chuva moderada",
+    65: "chuva forte",
+    80: "chuvas ocasionais",
+    81: "chuvas frequentes",
+    82: "chuvas intensas",
+    95: "trovoada",
+    96: "trovoada com granizo leve",
+    99: "trovoada com granizo forte",
+  };
+  return map[code] || "clima";
+}
+
 async function fetchWeather() {
+  const info = $("weather-info");
+  if (!info) return;
+
   try {
-    // coords default (Curitiba)
-    const lat = -25.5093, lon = -49.2710;
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&windspeed_unit=kmh&temperature_unit=celsius&timezone=${TIMEZONE}`;
+    const lat = -25.5093;
+    const lon = -49.2710;
+
+    const url =
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
+      `&current_weather=true&windspeed_unit=kmh&temperature_unit=celsius&timezone=${TIMEZONE}`;
+
     const res = await fetch(url);
     const data = await res.json();
-    const info = document.getElementById('weather-info');
-    if(data && data.current_weather){
+
+    if (data?.current_weather) {
       const c = data.current_weather;
       const desc = weatherCodeToText(c.weathercode);
-      info.innerHTML = `<div style="font-weight:700">${Number(c.temperature).toFixed(1)}°C</div><div style="color:var(--muted);font-size:0.95rem">${desc} • vento ${Math.round(c.windspeed)} km/h</div>`;
+
+      info.innerHTML =
+        `<div class="weather-temp">${Number(c.temperature).toFixed(1)}°C</div>` +
+        `<div class="weather-desc">${desc} • vento ${Math.round(c.windspeed)} km/h</div>`;
     } else {
-      if(info) info.textContent = 'dados indisponíveis';
+      info.textContent = "dados indisponíveis";
     }
-  } catch(err){
-    const info = document.getElementById('weather-info');
-    if(info) info.textContent = 'erro ao carregar clima';
-    console.error('weather err', err);
+  } catch (err) {
+    info.textContent = "erro ao carregar clima";
+    console.error("weather error", err);
   }
 }
-function weatherCodeToText(code){
-  const map = {
-    0:'céu limpo',1:'principalmente limpo',2:'parcialmente nublado',3:'nublado',
-    45:'névoa',48:'névoa com cristais',51:'chuvisco leve',53:'chuvisco moderado',
-    55:'chuvisco forte',61:'chuva fraca',63:'chuva moderada',65:'chuva forte',
-    80:'chuvas ocasionais',81:'chuvas frequentes',82:'chuvas intensas',
-    95:'trovoada',96:'trovoada com granizo leve',99:'trovoada com granizo forte'
-  };
-  return map[code] || 'clima';
-}
+
 fetchWeather();
 
-// ====== NOTÍCIAS (fallback local se API falhar) ======
-async function carregarNoticias(){
-  async function buscar(q, elId){
-    try{
-      const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(q)}&language=pt&apiKey=${NEWS_API_KEY}`;
-      const r = await fetch(url);
-      const j = await r.json();
-      const el = document.getElementById(elId);
-      if(!el) return;
-      el.innerHTML = '';
-      if(j.articles && j.articles.length){
-        j.articles.slice(0,6).forEach(a=>{
-          const li = document.createElement('li');
-          li.innerHTML = `<a href="${a.url}" target="_blank">${a.title}</a>`;
-          el.appendChild(li);
+// =====================
+// NEWS (NewsAPI) (só se existir)
+// =====================
+async function loadNews() {
+  if (!exists("news-list-coritiba") && !exists("news-list-santos")) return;
+
+  async function fetchTopic(query, listId) {
+    const listEl = $(listId);
+    if (!listEl) return;
+
+    try {
+      const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&language=pt&apiKey=${NEWS_API_KEY}`;
+      const res = await fetch(url);
+      const json = await res.json();
+
+      listEl.innerHTML = "";
+
+      if (json.articles?.length) {
+        json.articles.slice(0, 6).forEach((a) => {
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="${a.url}" target="_blank" rel="noopener">${a.title}</a>`;
+          listEl.appendChild(li);
         });
       } else {
-        el.innerHTML = `<li>Nenhuma notícia encontrada para ${q}.</li>`;
+        listEl.innerHTML = `<li>Nenhuma notícia encontrada para ${query}.</li>`;
       }
-    }catch(e){
-      // fallback local
-      const fallback = {
-        Coritiba:[ "Coritiba enfrenta desafio", "Próximo jogo do Coritiba" ],
-        Santos:[ "Santos prepara mudanças", "Peixe busca reforços" ]
-      };
-      const el = document.getElementById(elId);
-      if(!el) return;
-      el.innerHTML = '';
-      const lista = fallback[q] || [];
-      lista.forEach(t=>{
-        const li = document.createElement('li');
-        li.innerHTML = `<a href="#">${t}</a>`;
-        el.appendChild(li);
-      });
+    } catch (err) {
+      listEl.innerHTML = `<li>Falha ao carregar notícias.</li>`;
+      console.error("news error", err);
     }
   }
-  buscar('Coritiba','news-list-coritiba');
-  buscar('Santos','news-list-santos');
-}
-carregarNoticias();
 
-// ====== CONTADORES (ex: contagem para fim de ano) ======
-function atualizarContador(){
-  const el = document.getElementById('contador');
-  if(!el) return;
-  const destino = new Date("2025-12-31T23:59:59");
-  const agora = new Date();
-  const diff = destino - agora;
-  if(diff <= 0) { el.textContent = '🎉 Feliz 2026!'; return; }
-  const dias = Math.floor(diff / (1000*60*60*24));
-  const horas = Math.floor((diff/(1000*60*60))%24);
-  const minutos = Math.floor((diff/(1000*60))%60);
-  const segundos = Math.floor((diff/1000)%60);
-  el.textContent = `Faltam ${dias}d ${horas}h ${minutos}m ${segundos}s para 2026`;
+  fetchTopic("Coritiba", "news-list-coritiba");
+  fetchTopic("Santos", "news-list-santos");
 }
-setInterval(atualizarContador,1000);
-atualizarContador();
 
-// ====== CURRÍCULO PRIVADO — PIN via localStorage (simples) ======
-function setPin(){
-  const pin = prompt('Defina um PIN numérico para o seu currículo privado (ex: 1234):');
-  if(!pin) return alert('PIN não definido.');
-  localStorage.setItem('arrua_cv_pin', pin);
-  alert('PIN salvo localmente.');
+loadNews();
+
+// =====================
+// PRIVATE CV PIN (só se existir botões)
+// =====================
+function setPin() {
+  const pin = prompt("Defina um PIN numérico para o seu currículo privado (ex: 1234):");
+  if (!pin) return alert("PIN não definido.");
+  localStorage.setItem("arrua_cv_pin", pin);
+  alert("PIN salvo localmente.");
 }
-function openPrivateCV(){
-  const stored = localStorage.getItem('arrua_cv_pin');
-  if(!stored){
-    if(confirm('Nenhum PIN definido. Deseja definir agora?')) setPin();
+
+function openPrivateCV() {
+  const stored = localStorage.getItem("arrua_cv_pin");
+
+  if (!stored) {
+    if (confirm("Nenhum PIN definido. Deseja definir agora?")) setPin();
     return;
   }
-  const attempt = prompt('Insira o PIN para ver o currículo privado:');
-  if(attempt === stored){
-    const box = document.getElementById('private-cv');
-    if(box) box.style.display = 'block';
+
+  const attempt = prompt("Insira o PIN para ver o currículo privado:");
+  if (attempt === stored) {
+    const box = $("private-cv");
+    if (box) box.style.display = "block";
   } else {
-    alert('PIN incorreto.');
+    alert("PIN incorreto.");
   }
 }
-document.addEventListener('click', e=>{
-  const t = e.target;
-  if(t && t.id === 'set-pin') setPin();
-  if(t && t.id === 'open-private') openPrivateCV();
+
+document.addEventListener("click", (e) => {
+  const target = e.target;
+  if (target?.id === "set-pin") setPin();
+  if (target?.id === "open-private") openPrivateCV();
 });
+
+// Debug
+console.log("script.js carregou!");
