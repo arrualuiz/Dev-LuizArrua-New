@@ -1,33 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Currículo | Luiz Arrua</title>
+  <link rel="icon" type="image/png" href="la.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="page">
-
-  <!-- HEADER / MENU -->
+<body class="cv-page">
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="Go to Home">
       <img class="brand-logo" src="la.png" alt="LA" />
       <span class="brand-text">Arrua</span>
     </a>
 
-    <button class="menu-btn" id="menuBtn"
-      aria-label="Open menu"
-      aria-controls="menuPanel"
-      aria-expanded="false">
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="menuPanel" aria-expanded="false">
       <span class="menu-icon" aria-hidden="true"></span>
     </button>
   </header>
 
-  <!-- Overlay -->
+  <!-- Overlay (clique fora pra fechar) -->
   <div class="menu-overlay" id="menuOverlay" hidden></div>
 
-  <!-- Menu panel -->
+  <!-- Painel do menu -->
   <nav class="menu-panel" id="menuPanel" aria-label="Site menu" hidden>
     <div class="menu-panel-head">
       <div class="menu-title">Menu</div>
@@ -36,166 +32,202 @@
 
     <a class="menu-link" href="index.html">🏠 Home</a>
     <a class="menu-link" href="news.html">📰 Dashboard / News</a>
-    <a class="menu-link" href="sobre.html">👤 About / Resume</a>
+    <a class="menu-link" href="curriculo.html">📄 Currículo</a>
 
     <div class="menu-sep"></div>
   </nav>
 
-  <!-- PAGE CONTENT -->
   <div id="app">
-    <div class="cell cell-large cv-card">
-      <div class="card-inner cv">
+    <main class="cv-wrap">
+      <section class="card cv-card">
+        <div class="card-inner cv">
 
-        <!-- Header do CV -->
-        <div class="cv-header">
-          <div>
-            <h1 class="cv-name">Luiz Felipe Arrua Castilho</h1>
-            <p class="cv-role">Líder de Suporte Técnico • Helpdesk • TI</p>
-          </div>
-
-          <div class="cv-links">
-            <a href="mailto:luizarrua16@gmail.com">luizarrua16@gmail.com</a>
-            <span class="cv-dot">•</span>
-            <a href="tel:+5541991415164">(41) 99141-5164</a>
-            <span class="cv-dot">•</span>
-            <a href="https://www.linkedin.com/in/luizarrua/" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-
-          <p class="cv-location">
-            Curitiba – PR • Brasil • Bairro Xaxim • CEP 81810-590
-          </p>
-        </div>
-
-        <!-- Experiência -->
-        <div class="cv-section">
-          <h2 class="cv-title">Experiência</h2>
-
-          <div class="cv-item">
-            <div class="cv-item-head">
+          <!-- Header -->
+          <div class="cv-header">
+            <div class="cv-header-top">
               <div>
-                <div class="cv-item-role">VorpTech — Líder de Suporte Técnico</div>
-                <div class="cv-item-sub">CLT</div>
+                <h1 class="cv-name">Luiz Felipe Arrua Castilho</h1>
+                <p class="cv-role">Líder de Suporte Técnico • Helpdesk • TI</p>
               </div>
-              <div class="cv-item-date">14/02/2023 — Atual</div>
+
+              <div class="cv-contact">
+                <a href="mailto:luizarrua16@gmail.com">luizarrua16@gmail.com</a>
+                <span class="cv-dot">•</span>
+                <a href="tel:+5541991415164">(41) 99141-5164</a>
+                <span class="cv-dot">•</span>
+                <a href="https://www.linkedin.com/in/luizarrua/" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
             </div>
 
-            <p class="cv-desc">
-              Responsável técnico pela área de Suporte e Helpdesk, liderando equipe, atendendo clientes corporativos e garantindo o funcionamento dos ambientes de TI.
+            <p class="cv-location">
+              Curitiba – PR • Brasil • Bairro Xaxim • CEP 81810-590
             </p>
+          </div>
 
-            <div class="cv-grid">
-              <div class="cv-block">
-                <h3 class="cv-subtitle">Liderança & Gestão de Suporte</h3>
-                <ul class="cv-list">
-                  <li>Supervisão direta de estagiários e equipe técnica</li>
-                  <li>Distribuição de demandas, acompanhamento e priorização</li>
-                  <li>Suporte a clientes VIP e atendimentos críticos</li>
-                  <li>Visitas presenciais recorrentes em cliente estratégico (CBRE)</li>
-                </ul>
+          <!-- Experiência -->
+          <section class="cv-section">
+            <h2 class="cv-title">Experiência</h2>
+
+            <article class="cv-item">
+              <div class="cv-item-head">
+                <div>
+                  <div class="cv-item-role">VorpTech — Líder de Suporte Técnico</div>
+                  <div class="cv-item-sub">CLT</div>
+                </div>
+                <div class="cv-item-date">14/02/2023 — Atual</div>
               </div>
 
-              <div class="cv-block">
-                <h3 class="cv-subtitle">Atendimento Técnico & Operacional</h3>
-                <ul class="cv-list">
-                  <li>Chamados N1 e N2 (remoto e presencial)</li>
-                  <li>Manutenção, configuração e setup para novos clientes</li>
-                  <li>Resolução de incidentes de alta urgência</li>
-                  <li>Padronização de procedimentos e melhoria contínua</li>
-                </ul>
+              <p class="cv-desc">
+                Responsável técnico pela área de Suporte e Helpdesk, liderando equipe, atendendo clientes corporativos e garantindo o funcionamento dos ambientes de TI.
+              </p>
+
+              <div class="cv-grid">
+                <div class="cv-block">
+                  <h3 class="cv-subtitle">Liderança & Gestão de Suporte</h3>
+                  <ul class="cv-list">
+                    <li>Supervisão direta de estagiários e equipe técnica</li>
+                    <li>Distribuição de demandas, acompanhamento e priorização</li>
+                    <li>Suporte a clientes VIP e atendimentos críticos</li>
+                    <li>Visitas presenciais recorrentes em cliente estratégico (CBRE)</li>
+                  </ul>
+                </div>
+
+                <div class="cv-block">
+                  <h3 class="cv-subtitle">Atendimento Técnico & Operacional</h3>
+                  <ul class="cv-list">
+                    <li>Chamados N1 e N2 (remoto e presencial)</li>
+                    <li>Manutenção, configuração e setup para novos clientes</li>
+                    <li>Resolução de incidentes de alta urgência</li>
+                    <li>Padronização de procedimentos e melhoria contínua</li>
+                  </ul>
+                </div>
+
+                <div class="cv-block">
+                  <h3 class="cv-subtitle">Inventário, Licenças e Automação</h3>
+                  <ul class="cv-list">
+                    <li>Gestão de inventário técnico em Milvus, Trend Micro e RMM Ninja</li>
+                    <li>Auditoria de licenças e correções de inconsistências</li>
+                    <li>Cruzamento de dados e automatizações com Python + SQL + Power BI</li>
+                    <li>Gestão de Backup (Acronis) e monitoramento diário de falhas</li>
+                    <li>Identificação de causa raiz e ações preventivas/corretivas</li>
+                  </ul>
+                </div>
+
+                <div class="cv-block">
+                  <h3 class="cv-subtitle">Documentação & Processos</h3>
+                  <ul class="cv-list">
+                    <li>Criação de POPs e materiais de apoio</li>
+                    <li>Estruturação de rotinas e boas práticas técnicas</li>
+                    <li>Documentação detalhada de atendimentos e soluções</li>
+                  </ul>
+                </div>
               </div>
 
-              <div class="cv-block">
-                <h3 class="cv-subtitle">Inventário, Licenças e Automação</h3>
+              <div class="cv-results">
+                <h3 class="cv-subtitle">Resultados e entregas</h3>
                 <ul class="cv-list">
-                  <li>Gestão de inventário técnico (Milvus, Trend Micro, Ninja RMM)</li>
-                  <li>Auditoria de licenças e correções de inconsistências</li>
-                  <li>Automatizações com Python + SQL + Power BI</li>
-                  <li>Gestão de Backup (Acronis) + monitoramento diário</li>
-                  <li>Análise de causa raiz + ações preventivas/corretivas</li>
+                  <li>Aumento da precisão do inventário com automações de dados</li>
+                  <li>Redução significativa de falhas recorrentes em backup</li>
+                  <li>Organização e padronização de procedimentos internos</li>
+                  <li>Melhoria da velocidade de atendimento técnico</li>
                 </ul>
               </div>
+            </article>
 
-              <div class="cv-block">
-                <h3 class="cv-subtitle">Documentação & Processos</h3>
-                <ul class="cv-list">
-                  <li>Criação de POPs e materiais de apoio</li>
-                  <li>Estruturação de rotinas e boas práticas técnicas</li>
-                  <li>Documentação detalhada de atendimentos e soluções</li>
-                </ul>
+            <article class="cv-item">
+              <div class="cv-item-head">
+                <div>
+                  <div class="cv-item-role">Telefónica — Atendimento ao Cliente</div>
+                  <div class="cv-item-sub">CLT</div>
+                </div>
+                <div class="cv-item-date">01/10/2018 — 01/07/2022</div>
               </div>
-            </div>
 
-            <div class="cv-results">
-              <h3 class="cv-subtitle">Resultados e entregas</h3>
+              <p class="cv-desc">
+                Iniciei em Atendimento de Suporte N1 e atuei em diferentes frentes: Móvel Crítico, Programa Anjos, Móvel Top, Cluster (Móvel e Fixo / Vendas), Vivo V (N3) e WhatsApp Vivo V.
+              </p>
+
               <ul class="cv-list">
-                <li>Aumento da precisão do inventário com automações de dados</li>
-                <li>Redução significativa de falhas recorrentes em backup</li>
-                <li>Organização e padronização de procedimentos internos</li>
-                <li>Melhoria da velocidade de atendimento técnico</li>
+                <li>Suporte técnico N1 e atendimento ao cliente</li>
+                <li>Atuação em frentes críticas e atendimento de maior complexidade (N3)</li>
+                <li>Vivência com metas, processos e rotina de atendimento</li>
               </ul>
-            </div>
-          </div>
+            </article>
+          </section>
 
-          <div class="cv-item">
-            <div class="cv-item-head">
-              <div>
-                <div class="cv-item-role">Telefónica — Atendimento ao Cliente</div>
-                <div class="cv-item-sub">CLT</div>
+          <!-- Formação -->
+          <section class="cv-section">
+            <h2 class="cv-title">Formação</h2>
+
+            <article class="cv-item">
+              <div class="cv-item-head">
+                <div class="cv-item-role">PUCPR — Análise e Desenvolvimento de Software</div>
+                <div class="cv-item-date">Conclusão prevista: 07/2027</div>
               </div>
-              <div class="cv-item-date">01/10/2018 — 01/07/2022</div>
-            </div>
+              <div class="cv-item-sub">Cursando — 2º ano • Noturno</div>
+            </article>
 
-            <p class="cv-desc">
-              Iniciei em Atendimento de Suporte N1 e evoluí por diferentes frentes: Móvel Crítico, Programa Anjos, Móvel Top, Cluster (móvel/fixo e vendas), Vivo V (N3) e WhatsApp Vivo V.
-            </p>
+            <article class="cv-item">
+              <div class="cv-item-head">
+                <div class="cv-item-role">UFPR — Estatística e Ciência de Dados</div>
+                <div class="cv-item-date">Conclusão prevista: 07/2029</div>
+              </div>
+              <div class="cv-item-sub">Cursando — 2º ano • Noturno</div>
+            </article>
 
-            <ul class="cv-list">
-              <li>Suporte N1 e atendimento técnico ao cliente</li>
-              <li>Atuação em frentes críticas e atendimento de maior complexidade (N3)</li>
-              <li>Experiência com processos, metas e qualidade de atendimento</li>
-            </ul>
-          </div>
+            <article class="cv-item">
+              <div class="cv-item-head">
+                <div class="cv-item-role">UFPR — Gestão da Informação</div>
+                <div class="cv-item-date">03/2022</div>
+              </div>
+              <div class="cv-item-sub">Interrompido • Matutino</div>
+            </article>
+          </section>
+
+          <footer class="footer">
+            <div class="signature">Desenvolvido por <strong>Arrua</strong> 🚀</div>
+          </footer>
+
         </div>
+      </section>
+    </main>
+  </div>
 
-        <!-- Formação -->
-        <div class="cv-section">
-          <h2 class="cv-title">Formação</h2>
+  <!-- Menu toggle (se teu script.js já faz isso, pode remover este bloco) -->
+  <script>
+    (function () {
+      const btn = document.getElementById("menuBtn");
+      const panel = document.getElementById("menuPanel");
+      const overlay = document.getElementById("menuOverlay");
+      const close = document.getElementById("menuClose");
 
-          <div class="cv-item">
-            <div class="cv-item-head">
-              <div class="cv-item-role">PUCPR — Análise e Desenvolvimento de Software</div>
-              <div class="cv-item-date">Conclusão prevista: 07/2027</div>
-            </div>
-            <div class="cv-item-sub">Cursando — 2º ano • Noturno</div>
-          </div>
+      if (!btn || !panel || !overlay || !close) return;
 
-          <div class="cv-item">
-            <div class="cv-item-head">
-              <div class="cv-item-role">UFPR — Estatística e Ciência de Dados</div>
-              <div class="cv-item-date">Conclusão prevista: 07/2029</div>
-            </div>
-            <div class="cv-item-sub">Cursando — 2º ano • Noturno</div>
-          </div>
+      function openMenu() {
+        panel.hidden = false;
+        overlay.hidden = false;
+        panel.classList.add("is-open");
+        btn.setAttribute("aria-expanded", "true");
+      }
 
-          <div class="cv-item">
-            <div class="cv-item-head">
-              <div class="cv-item-role">UFPR — Gestão da Informação</div>
-              <div class="cv-item-date">Conclusão: 03/2022</div>
-            </div>
-            <div class="cv-item-sub">Interrompido • Matutino</div>
-          </div>
-        </div>
+      function closeMenu() {
+        panel.classList.remove("is-open");
+        panel.hidden = true;
+        overlay.hidden = true;
+        btn.setAttribute("aria-expanded", "false");
+      }
 
-      </div> <!-- /.card-inner -->
-    </div> <!-- /.cell -->
-  </div> <!-- /#app -->
+      btn.addEventListener("click", () => {
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        expanded ? closeMenu() : openMenu();
+      });
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    Atualizado em 2026 • Desenvolvido por Arrua 🚀
-  </footer>
-
-  <!-- JS -->
-  <script src="script.js"></script>
+      close.addEventListener("click", closeMenu);
+      overlay.addEventListener("click", closeMenu);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+    })();
+  </script>
 </body>
 </html>
