@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para a Bia ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#090909;
+    color:white;
+    overflow-x:hidden;
+}
+
+section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:40px;
+}
+
+.hero{
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(3rem,10vw,7rem);
+    color:#ff5f95;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    max-width:700px;
+    line-height:1.8;
+}
+
+.btn{
+    margin-top:40px;
+    padding:15px 30px;
+    border:none;
+    border-radius:50px;
+    background:#ff5f95;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.heart-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom: 100px;
+    margin-top: 50px; /* Esse ajuste dá espaço extra no topo */
+}
+
+.heart{
+    width:150px;
+    height:150px;
+    background:#ff3366;
+    position:relative;
+    transform:rotate(45deg);
+    animation:pulse 1.5s infinite;
+}
+
+.heart:before,
+.heart:after{
+    content:"";
+    width:150px;
+    height:150px;
+    background:#ff3366;
+    border-radius:50%;
+    position:absolute;
+}
+
+.heart:before{
+    left:-75px;
+}
+
+.heart:after{
+    top:-75px;
+}
+
+@keyframes pulse{
+    0%{
+        transform:rotate(45deg) scale(1);
+    }
+
+    50%{
+        transform:rotate(45deg) scale(1.15);
+    }
+
+    100%{
+        transform:rotate(45deg) scale(1);
+    }
+}
+
+.card{
+    width:min(900px,95%);
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:25px;
+    padding:40px;
+    margin-bottom:25px;
+    backdrop-filter:blur(15px);
+}
+
+.card h2{
+    margin-bottom:20px;
+    color:#ff7ba7;
+}
+
+.card p{
+    line-height:1.9;
+    font-size:1.1rem;
+}
+
+.counter{
+    font-size:2rem;
+    text-align:center;
+    color:#fce1e1;
+    font-weight:bold;
+}
+
+.counter-mini{
+    margin-top:10px;
+    color:#ff7ba7;
+    font-size:0.95rem;
+    font-style:italic;
+}
+
+.timeline{
+    width:min(900px,95%);
+}
+
+.timeline-item{
+    padding:20px;
+    border-left:3px solid #ff5f95;
+    margin-bottom:20px;
+}
+
+.timeline-item h3{
+    color:#ff7ba7;
+}
+
+footer{
+    text-align:center;
+    padding:50px;
+    color:#aaa;
+}
+
+.nav-buttons{
+    position:fixed;
+    top:20px;
+    left:20px;
+    display:none;
+    gap:10px;
+    z-index:9999;
+    animation:fadeIn .5s ease; 
+}
+
+.nav-btn{
+    background:#111;
+    color:#fff;
+
+    border:1px solid rgba(255,95,149,.5);
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    background:#ff5f95;
+    color:#ffffff;
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(255,95,149,.5);
+}
+
+.footer-actions{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="nav-buttons" id="navButtons" style="display:none;">
+
+    <button class="nav-btn" onclick="resetarPagina()">
+        ←
+    </button>
+
+    <a class="nav-btn" href="index.html">
+        🏠
+    </a>
+
+</div>
+
+<section class="hero">
+
+    <h1>Bia ❤️</h1>
+
+    <p>
+        Eu poderia comprar flores, perfumes, bolsas e outros presentes tradicionais.
+        Mas eu sou desenvolvedor...
+        então resolvi fazer uma página só para você.
+    </p>
+
+    <button class="btn" onclick="abrirCarta()">
+        Abrir ❤️
+    </button>
+
+</section>
+
+<section id="conteudo" style="display:none;">
+
+    <div class="heart-container">
+        <div class="heart"></div>
+    </div>
+
+    <div class="card">
+
+        <h2>Oi Bia</h2>
+
+        <p id="textoDigitando"></p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Quanto tempo faz?</h2>
+
+        <div class="counter" id="contador"></div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Nossa história</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <h3>Março de 2025</h3>
+                <p>Quando tudo começou.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Primeiros encontros</h3>
+                <p>Primeiras conversas, primeiros momentos.</p>
+                <p>14/03/2026 19:00</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Namoro</h3>
+                <p>Viagem pra Matinhos Beach</p>
+                <p>2025-08-07T15:45:00</p>
+                <p class="counter-mini" id="contadorNamoro"></p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Hoje</h3>
+                <p>E essa história continua sendo escrita.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>5 coisas que eu amo em você</h2>
+
+        <p>
+            ❤️ Seu sorriso<br>
+            ❤️ Seu jeito leve<br>
+            ❤️ Seu carinho<br>
+            ❤️ Nossas conversas<br>
+            ❤️ Como você me faz sentir
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Mensagem Final</h2>
+
+        <p>
+            Essa página não seja perfeita.
+            Eu ainda tenho muito para aprender.
+
+            Mas uma coisa eu tenho certeza:
+
+            você é uma das melhores coisas que aconteceram na minha vida.
+
+            Obrigado por fazer parte dela.
+
+            ❤️
+        </p>
+
+    </div>
+
+</section>
+
+<footer id="footerBia" style="display:none;">
+
+    Desenvolvido com amor por Luiz Arrua ❤️
+
+    <div class="footer-actions">
+
+        <button class="nav-btn" onclick="resetarPagina()">
+            ←
+        </button>
+
+        <a class="nav-btn" href="index.html">
+            🏠
+        </a>
+
+    </div>
+
+</footer>
+
+<script>
+
+    window.addEventListener("load", () => {
+    window.scrollTo(0, 0);
+
+    document.querySelector(".hero").style.display = "flex";
+    document.getElementById("conteudo").style.display = "none";
+    document.getElementById("navButtons").style.display = "none";
+    document.getElementById("footerBia").style.display = "none";
+});
+
+const mensagem = `
+Eu queria fazer algo diferente.
+
+Não apenas te entregar um presente.
+
+Queria construir algo.
+
+Algo que ficasse guardado.
+
+Algo que mostrasse que você ocupa um espaço especial na minha vida.
+
+Você trouxe leveza para os meus dias.
+
+Você trouxe paz.
+
+Você trouxe felicidade.
+
+E do jeito que eu sei demonstrar carinho...
+
+eu escrevi algumas linhas de código para você.
+
+Feliz Dia dos Namorados ❤️
+`;
+
+function abrirCarta(){
+
+    window.scrollTo(0, 0);
+
+    document.querySelector(".hero").style.display = "none";
+
+    document.getElementById("conteudo").style.display = "flex";
+
+    document.getElementById("navButtons").style.display = "flex";
+
+    document.getElementById("footerBia").style.display = "block";
+
+    digitarTexto();
+}
+
+let posicao = 0;
+
+function digitarTexto(){
+
+    const alvo = document.getElementById("textoDigitando");
+
+    if(posicao < mensagem.length){
+
+        alvo.innerHTML += mensagem.charAt(posicao);
+
+        posicao++;
+
+        setTimeout(digitarTexto,25);
+
+    }
+
+}
+
+function resetarPagina(){
+
+    window.scrollTo(0, 0);
+
+    document.querySelector(".hero").style.display = "flex";
+
+    document.getElementById("conteudo").style.display = "none";
+
+    document.getElementById("navButtons").style.display = "none";
+
+    document.getElementById("footerBia").style.display = "none";
+
+    document.getElementById("textoDigitando").innerHTML = "";
+
+    posicao = 0;
+}
+
+function atualizarContador(){
+
+    const inicio = new Date("2025-08-07T15:45:00");
+
+    const agora = new Date();
+
+    const diff = agora - inicio;
+
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+
+    const minutos = Math.floor((diff / (1000 * 60)) % 60);
+
+    const segundos = Math.floor((diff / 1000) % 60);
+
+    const textoContador =
+        `${dias} dias<br>${horas}h ${minutos}m ${segundos}s`;
+
+    document.getElementById("contador").innerHTML = textoContador;
+
+    document.getElementById("contadorNamoro").innerHTML =
+    `❤️ ${dias} dias desde o pedido de namoro`;
+    
+}
+
+setInterval(atualizarContador,1000);
+
+</script>
+
+</body>
+</html>
