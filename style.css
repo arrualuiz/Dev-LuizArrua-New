@@ -38,7 +38,7 @@ body {
 
 /* CABEÇALHO - RELÓGIO E DATA */
 
-header {
+#dashboard > header {
   position: fixed;
   top: 18px;
   left: 18px;
@@ -341,7 +341,7 @@ header {
   }
 }
 @media (max-width: 900px) {
-  header {
+  #dashboard > header {
     position: static;
     align-items: center;
     text-align: center;
@@ -361,10 +361,11 @@ body:not(.logged-in) .private { display: none !important; }
   position: fixed;
   top: 18px;
   right: 18px;
-  left: auto;
+  left: 18px;
   z-index: 80;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   padding: 10px 12px;
   border-radius: 14px;
@@ -378,6 +379,7 @@ body:not(.logged-in) .private { display: none !important; }
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .nav-brand {
@@ -510,7 +512,7 @@ body:not(.logged-in) .private { display: none !important; }
 
 body.page {
   display: block;
-  padding: 96px 24px 24px;
+  padding: 118px 24px 24px;
 }
 
 .page-container {
@@ -523,7 +525,8 @@ body.page {
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
+  position: static;
 }
 
 .page-title {
@@ -723,6 +726,9 @@ body.page {
   .resume-grid { grid-template-columns: 1fr; }
   .page-hero { flex-direction: column; }
   .hero-actions { justify-content: flex-start; }
+  body.page { padding-top: 146px; }
+  .top-nav { align-items: flex-start; }
+  .top-nav .nav-right { justify-content: flex-end; }
 }
 
 /* ==========================
@@ -773,4 +779,21 @@ body.page {
   .intro-grid,
   .repo-grid { grid-template-columns: 1fr; }
   .section-head { flex-direction: column; }
+}
+
+@media (max-width: 720px) {
+  body.page { padding: 166px 16px 20px; }
+  .top-nav {
+    right: 12px;
+    left: 12px;
+  }
+  .top-nav .nav-left,
+  .top-nav .nav-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .top-nav .nav-link[href="#dev-hub"],
+  .top-nav .nav-link[href="#curriculo-oficial"] {
+    display: none;
+  }
 }

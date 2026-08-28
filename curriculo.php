@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luiz Arrua - Dev Hub & Currículo</title>
   <link rel="icon" type="image/png" href="la.png">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=curriculo-layout-2" />
 </head>
 <body class="page">
   <nav class="top-nav" aria-label="Navegação">
