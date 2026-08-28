@@ -1,3 +1,6 @@
+<?php
+// pagina em PHP (conteudo igual ao HTML)
+?>
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -12,8 +15,8 @@
     <header class="topbar">
       <div class="brand">Arrua • Sobre</div>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="news.html">Painel</a>
+        <a href="index.php">Home</a>
+        <a href="news.php">Painel</a>
       </nav>
     </header>
 
@@ -59,7 +62,7 @@
     </main>
 
     <footer class="footer">
-      <a href="index.html" class="btn-link">← Voltar</a>
+      <a href="index.php" class="btn-link">← Voltar</a>
     </footer>
   </div>
 
