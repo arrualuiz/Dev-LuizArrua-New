@@ -34,10 +34,13 @@
 /* Reset */
 *{ box-sizing:border-box; }
 html,body{
-  height:100%;
+  min-height:100%;
   margin:0;
   font-family: Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   background: linear-gradient(180deg,var(--navy),var(--black));
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: var(--black);
   color: var(--white);
   -webkit-font-smoothing: antialiased;
 }
@@ -811,6 +814,27 @@ html{
   color: var(--muted);
 }
 
+.cv-cert-strip{
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: calc(14px * var(--ui-scale));
+  align-items: center;
+  padding: calc(12px * var(--ui-scale));
+  border-radius: calc(14px * var(--ui-scale));
+  border: 1px solid rgba(109,170,255,0.18);
+  background: rgba(255,255,255,0.04);
+}
+
+.cv-cert-strip img{
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  border-radius: calc(10px * var(--ui-scale));
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
 .cv-lead{
   font-size: 1.04rem;
   line-height: 1.7;
@@ -1014,12 +1038,67 @@ html{
   border: 1px solid rgba(109,170,255,0.18);
 }
 
+.cv-application-details summary{
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(109,170,255,0.35);
+  color: #041226;
+  background: #9dbff9;
+  font-weight: 900;
+  list-style: none;
+}
+
+.cv-application-details summary::-webkit-details-marker{
+  display: none;
+}
+
+.cv-application-details[open] summary{
+  margin-bottom: 14px;
+}
+
+.cv-copy-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(12px * var(--ui-scale));
+}
+
+.cv-copy-stack{
+  display: grid;
+  gap: calc(12px * var(--ui-scale));
+  margin-top: calc(12px * var(--ui-scale));
+}
+
+.cv-copy-card{
+  padding: calc(12px * var(--ui-scale));
+  border-radius: calc(12px * var(--ui-scale));
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(4,18,38,0.55);
+}
+
+.cv-copy-card h3{
+  margin: 0 0 8px;
+  color: var(--white);
+}
+
+.cv-copy-card p{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 /* Responsivo */
 @media (max-width: 900px){
   .cv-grid,
   .cv-skill-columns,
   .cv-highlight-grid,
-  .cv-project-grid{ grid-template-columns: 1fr; }
+  .cv-project-grid,
+  .cv-cert-strip,
+  .cv-copy-grid{ grid-template-columns: 1fr; }
 
   .cv-section-head{
     flex-direction: column;
