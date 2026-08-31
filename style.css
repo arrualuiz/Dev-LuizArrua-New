@@ -336,18 +336,23 @@ html{
 }
 
 .countdown-box{
-  width:100%;
+  width: min(100%, 318px);
   margin-top: calc(10px * var(--ui-scale));
-  padding: calc(10px * var(--ui-scale));
-  border-radius: calc(10px * var(--ui-scale));
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.04);
+  padding: calc(10px * var(--ui-scale)) calc(12px * var(--ui-scale));
+  border-radius: calc(16px * var(--ui-scale));
+  background: linear-gradient(135deg, rgba(31, 47, 72, .72), rgba(16, 27, 44, .70));
+  border: 1px solid rgba(116, 168, 255, 0.13);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
 }
 
 .countdown-box p{
   margin: 0;
-  font-size: clamp(12px, 0.9vw, 14px);
+  font-size: clamp(11px, 0.82vw, 13px);
+  line-height: 1.45;
   color: #9dbff9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* =========================
@@ -846,7 +851,7 @@ html{
   .clock-time{ font-size: 50px; }
   .calendar-grid{ gap: 4px; }
   .calendar-meta{ margin-top: 6px; gap: 3px; }
-  .countdown-box{ margin-top: 6px; padding: 6px; }
+  .countdown-box{ margin-top: 6px; padding: 7px 8px; }
   .chooser-item{ min-height: 86px; }
   .quick-card{ min-height: 78px; }
 
@@ -918,8 +923,8 @@ html{
   .calendar-meta{ margin-top: 8px; gap: 4px; }
   .calendar-meta p{ font-size: 0.85rem; }
 
-  .countdown-box{ margin-top: 8px; padding: 7px; }
-  .countdown-box p{ font-size: 11px; line-height: 1.2; }
+  .countdown-box{ margin-top: 8px; padding: 7px 8px; }
+  .countdown-box p{ font-size: 11px; line-height: 1.35; }
 
   /* right column mais tight */
   .right-column{ gap: 10px; }
@@ -1015,15 +1020,15 @@ html{
    ========================= */
 
 .countdown-box p{
-  font-size: 0.81rem;
-  line-height: 1.60;
+  font-size: clamp(11px, 0.82vw, 13px);
+  line-height: 1.45;
 }
 
 /* notebook 1366x768 */
 @media (max-width: 1400px){
   .countdown-box p{
-    font-size: 0.81rem;
-    line-height: 1.60;
+    font-size: 11px;
+    line-height: 1.35;
   }
 }
 
