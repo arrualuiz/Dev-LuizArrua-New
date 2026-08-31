@@ -81,9 +81,8 @@ html{
 
 /* Right stack */
 .center-column{
-  display:grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-template-rows: auto 1fr auto;
+  display:flex;
+  flex-direction:column;
   gap: var(--gap);
   min-width: 0;
 }
@@ -99,11 +98,12 @@ html{
   display:grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--gap);
+  width: 100%;
 }
 
 .quick-card{
-  min-height: calc(82px * var(--ui-scale));
-  padding: calc(11px * var(--ui-scale));
+  min-height: calc(92px * var(--ui-scale));
+  padding: calc(14px * var(--ui-scale));
   border-radius: calc(18px * var(--ui-scale));
   background:
     radial-gradient(circle at 18% 14%, rgba(255,255,255,0.13), transparent 28%),
@@ -147,7 +147,7 @@ html{
 
 .quick-card strong{
   color: var(--white);
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.15;
 }
 
@@ -201,14 +201,12 @@ html{
    - evita “mexer” com segundos
    ========================= */
 .card-clock{
-  grid-column: 1 / -1;
-  grid-row: 2;
   display:flex;
   align-items:center;
   justify-content:center;
   flex: 1;
   min-height: 320px;
-  padding: 100px 20px;
+  padding: 50px 25px;
   overflow: hidden;
   background:
     radial-gradient(circle at 24% 18%, rgba(109,170,255,0.15), transparent 30%),
@@ -277,6 +275,8 @@ html{
   background:
     radial-gradient(circle at 74% 16%, rgba(109,170,255,0.15), transparent 30%),
     linear-gradient(145deg, rgba(21,35,59,0.88), rgba(9,16,31,0.82));
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .calendar{ width:100%; }
@@ -836,8 +836,8 @@ html{
   .calendar-meta{ margin-top: 6px; gap: 3px; }
   .countdown-box{ margin-top: 6px; padding: 6px; }
   .chooser-item{ min-height: 86px; }
-  .quick-card{ min-height: 64px; }
-  .quick-grid-spacer{ min-height: 64px; }
+  .quick-card{ min-height: 70px; }
+  .quick-grid-spacer{ min-height: 70px; }
 
   .news-wrap{
     max-width: 1080px;
@@ -885,7 +885,7 @@ html{
   /* diminui gaps e padding geral */
   .dashboard-grid{ gap: 10px; }
   .card{ padding: 9px; border-radius: 10px; }
-  .card-clock{ padding: 100px 20px; }
+  .card-clock{ padding: 50px 25px; }
 
   /* relógio menor (e sem ficar dançando) */
   .clock-time{
@@ -918,7 +918,7 @@ html{
   .link-groups{ gap: 7px; }
   .link-group{ padding: 7px; }
   .link-pills{ gap: 5px; }
-  .link-pills a{ font-size: 0.78rem; min-height: 30px; }
+  .link-pills a{ font-size: 0.8rem; min-height: 32px; }
 
   .chooser-item{ min-height: 74px; padding: 9px; border-radius: 16px; }
   .chooser-icon{ width: 42px; height: 42px; border-radius: 12px; font-size: 16px; margin-bottom: 5px; }
