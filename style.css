@@ -23,9 +23,9 @@
      - centro FIXO (não muda com o relógio)
      - esquerda maior (texto não quebra) e direita maior
      ========================= */
-  --col-left: 320px;
-  --col-center: 470px;
-  --col-right: 320px;
+  --col-left: 350px;
+  --col-center: 390px;
+  --col-right: 350px;
 
   /* largura máxima do app */
   --app-max: calc(var(--col-left) + var(--col-center) + var(--col-right) + (2 * var(--gap)));
@@ -76,15 +76,64 @@ html{
 /* Place blocks */
 #weather-card  { grid-column: 1; grid-row: 1; }
 #calendar-card { grid-column: 1; grid-row: 2; }
-#clock-card    { grid-column: 2; grid-row: 1 / span 2; }
+#center-column { grid-column: 2; grid-row: 1 / span 2; }
 .right-column  { grid-column: 3; grid-row: 1 / span 2; }
 
 /* Right stack */
-.right-column{
+.right-column,
+.center-column{
   display:flex;
   flex-direction:column;
   gap: var(--gap);
   min-width: 0;
+}
+
+.quick-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
+}
+
+.quick-card{
+  min-height: calc(76px * var(--ui-scale));
+  padding: calc(11px * var(--ui-scale));
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid rgba(110,140,180,0.06);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  gap: calc(5px * var(--ui-scale));
+  transition: transform .22s ease, border-color .22s ease;
+}
+
+.quick-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(109,170,255,0.22);
+}
+
+.quick-label{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width: calc(34px * var(--ui-scale));
+  min-height: calc(24px * var(--ui-scale));
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(109,170,255,0.10);
+  color: #9dbff9;
+  border: 1px solid rgba(109,170,255,0.18);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.quick-card strong{
+  color: var(--white);
+  font-size: 0.9rem;
+  line-height: 1.15;
 }
 
 /* =========================
@@ -139,7 +188,8 @@ html{
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height: 500px;
+  flex: 1;
+  min-height: 320px;
   background: linear-gradient(135deg, rgba(11,23,38,0.65), rgba(7,12,20,0.6));
   backdrop-filter: blur(6px);
 }
@@ -689,21 +739,22 @@ html{
 @media (max-width: 1500px){
   :root{
     --ui-scale: 0.64;
-    --col-left: 280px;
-    --col-center: 390px;
-    --col-right: 280px;
+    --col-left: 310px;
+    --col-center: 340px;
+    --col-right: 310px;
   }
 
-  .card-clock{ min-height: 448px; }
+  .card-clock{ min-height: 288px; }
   .card-calendar{ min-height: 372px; }
   .card-weather,
   .card-links,
   .card-shortcuts{ min-height: 104px; }
-  .clock-time{ font-size: 66px; }
+  .clock-time{ font-size: 60px; }
   .calendar-grid{ gap: 4px; }
   .calendar-meta{ margin-top: 6px; gap: 3px; }
   .countdown-box{ margin-top: 6px; padding: 6px; }
   .chooser-item{ min-height: 86px; }
+  .quick-card{ min-height: 54px; }
 
   .news-wrap{
     max-width: 1080px;
@@ -737,9 +788,9 @@ html{
     --ui-scale: 0.60;
 
     /* colunas menores, mas ainda 3 colunas */
-    --col-left: 260px;
-    --col-center: 370px;
-    --col-right: 250px;
+    --col-left: 290px;
+    --col-center: 320px;
+    --col-right: 290px;
   }
 
   /* corta "respiro" vertical */
@@ -754,7 +805,7 @@ html{
 
   /* relógio menor (e sem ficar dançando) */
   .clock-time{
-    font-size: 60px;
+    font-size: 54px;
     line-height: .92;
     margin-bottom: 8px;
     letter-spacing: 1px;
@@ -777,6 +828,8 @@ html{
 
   /* right column mais tight */
   .right-column{ gap: 10px; }
+  .center-column{ gap: 10px; }
+  .quick-grid{ gap: 10px; }
   .link-list{ gap: 4px; }
   .link-list a{ font-size: 0.9rem; }
 
@@ -796,8 +849,8 @@ html{
   :root{
     --ui-scale: 0.58;
     --col-left: 280px;
-    --col-center: 480px;
-    --col-right: 240px;
+    --col-center: 300px;
+    --col-right: 280px;
   }
 
   #app{
@@ -826,7 +879,7 @@ html{
 
   #weather-card,
   #calendar-card,
-  #clock-card,
+  #center-column,
   .right-column{
     grid-column: auto;
     grid-row: auto;
