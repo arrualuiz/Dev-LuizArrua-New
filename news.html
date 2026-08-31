@@ -15,7 +15,6 @@
     <a class="brand" href="index.html" aria-label="Go to Home">
       <img class="brand-logo" src="la.png" alt="LA" />
       <span class="brand-text">Arrua</span>
-      <span class="brand-badge">Panel</span>
     </a>
 
     <button class="menu-btn" id="menuBtn"
@@ -36,17 +35,19 @@
       <button class="menu-close" id="menuClose" aria-label="Close menu">✕</button>
     </div>
 
-    <a class="menu-link" href="index.html">🏠 Home</a>
-    <a class="menu-link" href="news.html">📰 Panel / News</a>
-    <a class="menu-link" href="sobre.html">👤 About / Resume</a>
-    <a class="menu-link" href="curriculo.html">📄 Currículo oficial</a>
+    <a class="menu-link" href="index.html">Home</a>
+    <a class="menu-link" href="news.html">Dashboard / News</a>
+    <a class="menu-link" href="curriculo.html">Curriculo oficial</a>
+    <a class="menu-link" href="sobre.html">Sobre</a>
+    <a class="menu-link" href="bia.html">Bia</a>
+    <a class="menu-link" href="luiz.html">Luiz</a>
 
     <div class="menu-sep"></div>
   </nav>
 
   <!-- CONTENT -->
   <main class="news-wrap" id="app">
-    <h1 class="news-title">Panel / News</h1>
+    <h1 class="news-title">Dashboard / News</h1>
     <p class="news-subtitle">Clima, calendário e notícias rápidas.</p>
 
     <div class="news-grid">
@@ -54,12 +55,12 @@
       <!-- LEFT COLUMN -->
       <section class="news-col">
         <article class="news-card">
-          <h2 class="news-h2">Weather</h2>
+          <h2 class="news-h2">Clima</h2>
           <div id="weather-info" class="news-muted">Loading...</div>
         </article>
 
         <article class="news-card">
-          <h2 class="news-h2">Calendar</h2>
+          <h2 class="news-h2">Calendário</h2>
           <div id="calendar" class="calendar"></div>
 
           <div class="news-meta">
@@ -72,14 +73,14 @@
       <!-- MIDDLE COLUMN -->
       <section class="news-col news-col-news">
         <article class="news-card">
-          <h2 class="news-h2">News — Coritiba</h2>
+          <h2 class="news-h2">Notícias — Coritiba</h2>
           <ul id="news-list-coritiba" class="news-list">
             <li class="news-muted">Loading...</li>
           </ul>
         </article>
 
         <article class="news-card">
-          <h2 class="news-h2">News — Santos</h2>
+          <h2 class="news-h2">Notícias — Santos</h2>
           <ul id="news-list-santos" class="news-list">
             <li class="news-muted">Loading...</li>
           </ul>
@@ -89,8 +90,8 @@
       <!-- RIGHT COLUMN -->
       <section class="news-col">
         <article class="news-card">
-          <h2 class="news-h2">Currencies</h2>
-          <div id="currencies" class="news-muted">Soon — reserved space</div>
+          <h2 class="news-h2">Moedas</h2>
+          <div id="currencies" class="news-muted">Task aberta: conectar cotação USD, EUR e cripto.</div>
         </article>
       </section>
 
@@ -101,7 +102,7 @@
   <footer class="news-footer">
     <a href="index.html" class="btn-link">← Back</a>
     <span class="news-footer-dot">•</span>
-    <span>Built by Arrua 🚀</span>
+    <span>Desenvolvido por Arrua 🚀</span>
   </footer>
 
   <script src="script.js"></script>

@@ -8,37 +8,35 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<header class="topbar">
-  <a class="brand" href="index.html" aria-label="Go to Home">
-    <img class="brand-logo" src="la.png" alt="LA" />
-    <span class="brand-text">Arrua</span>
-  </a>
-
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="menuPanel" aria-expanded="false">
-    <span class="menu-icon" aria-hidden="true"></span>
-  </button>
-</header>
-
-<!-- Overlay (clique fora pra fechar) -->
-<div class="menu-overlay" id="menuOverlay" hidden></div>
-
-<!-- Painel do menu -->
-<nav class="menu-panel" id="menuPanel" aria-label="Site menu" hidden>
-  <div class="menu-panel-head">
-    <div class="menu-title">Menu</div>
-    <button class="menu-close" id="menuClose" aria-label="Close menu">✕</button>
-  </div>
-
-  <a class="menu-link" href="index.html">🏠 Home</a>
-  <a class="menu-link" href="news.html">📰 Dashboard / News</a>
-  <a class="menu-link" href="sobre.html">👤 About / Resume</a>
-  <a class="menu-link" href="curriculo.html">📄 Currículo oficial</a>
-
-  <div class="menu-sep"></div>
-
-</nav>
-
 <body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Go to Home">
+      <img class="brand-logo" src="la.png" alt="LA" />
+      <span class="brand-text">Arrua</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="menuPanel" aria-expanded="false">
+      <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <div class="menu-overlay" id="menuOverlay" hidden></div>
+
+  <nav class="menu-panel" id="menuPanel" aria-label="Site menu" hidden>
+    <div class="menu-panel-head">
+      <div class="menu-title">Menu</div>
+      <button class="menu-close" id="menuClose" aria-label="Close menu">x</button>
+    </div>
+
+    <a class="menu-link" href="index.html">Home</a>
+    <a class="menu-link" href="news.html">Dashboard / News</a>
+    <a class="menu-link" href="curriculo.html">Curriculo oficial</a>
+    <a class="menu-link" href="sobre.html">Sobre</a>
+    <a class="menu-link" href="bia.html">Bia</a>
+    <a class="menu-link" href="luiz.html">Luiz</a>
+
+    <div class="menu-sep"></div>
+  </nav>
   <div id="app">
 
     <main class="dashboard-grid">
@@ -124,7 +122,7 @@
             <div class="chooser-stack">
               <a class="chooser-item" href="news.html" aria-label="Ir para Painel / News">
                 <div class="chooser-icon">📰</div>
-                <div class="chooser-title">Painel / News</div>
+                <div class="chooser-title">Dashboard / News</div>
                 <div class="chooser-desc">Notícias, clima, moedas e widgets.</div>
               </a>
 

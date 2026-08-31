@@ -23,9 +23,9 @@
      - centro FIXO (não muda com o relógio)
      - esquerda maior (texto não quebra) e direita maior
      ========================= */
-  --col-left: 370px;
-  --col-center: 600px;
-  --col-right: 370px;
+  --col-left: 360px;
+  --col-center: 520px;
+  --col-right: 360px;
 
   /* largura máxima do app */
   --app-max: calc(var(--col-left) + var(--col-center) + var(--col-right) + (2 * var(--gap)));
@@ -56,7 +56,7 @@ html{
    ========================= */
 #app{
   max-width: min(var(--app-max), 96vw);
-  margin: calc(32px * var(--ui-scale)) auto calc(24px * var(--ui-scale));
+  margin: calc(20px * var(--ui-scale)) auto calc(24px * var(--ui-scale));
   padding: var(--pad);
 }
 
@@ -67,7 +67,7 @@ html{
 .dashboard-grid{
   display:grid;
   grid-template-columns: var(--col-left) var(--col-center) var(--col-right);
-  grid-template-rows: auto auto;
+  grid-template-rows: auto 1fr;
   gap: var(--gap);
   align-items: stretch;
   justify-content: center; /* centraliza o grid inteiro */
@@ -139,6 +139,7 @@ html{
   display:flex;
   align-items:center;
   justify-content:center;
+  min-height: 520px;
   background: linear-gradient(135deg, rgba(11,23,38,0.65), rgba(7,12,20,0.6));
   backdrop-filter: blur(6px);
 }
@@ -307,6 +308,20 @@ html{
   align-items:center;
   text-align:center;
   gap: calc(10px * var(--ui-scale));
+}
+
+.card-weather,
+.card-links,
+.card-shortcuts{
+  min-height: 126px;
+}
+
+.card-calendar{
+  min-height: 430px;
+}
+
+.card-chooser{
+  flex: 1;
 }
 
 /* =========================
@@ -633,7 +648,7 @@ html{
   :root{
     --ui-scale: 0.72;
     --col-left: 340px;
-    --col-center: 600px; /* centro FIXO */
+    --col-center: 520px; /* centro FIXO */
     --col-right: 320px;
   }
 }
