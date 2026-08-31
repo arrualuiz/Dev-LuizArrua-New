@@ -102,8 +102,8 @@ html{
 }
 
 .quick-card{
-  min-height: calc(92px * var(--ui-scale));
-  padding: calc(14px * var(--ui-scale));
+  min-height: calc(112px * var(--ui-scale));
+  padding: calc(16px * var(--ui-scale));
   border-radius: calc(18px * var(--ui-scale));
   background:
     radial-gradient(circle at 18% 14%, rgba(255,255,255,0.13), transparent 28%),
@@ -134,20 +134,20 @@ html{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-width: calc(34px * var(--ui-scale));
-  min-height: calc(24px * var(--ui-scale));
-  padding: 3px 7px;
+  min-width: calc(40px * var(--ui-scale));
+  min-height: calc(30px * var(--ui-scale));
+  padding: 4px 8px;
   border-radius: 999px;
   background: rgba(109,170,255,0.10);
   color: #9dbff9;
   border: 1px solid rgba(109,170,255,0.18);
-  font-size: 0.76rem;
+  font-size: 0.82rem;
   font-weight: 800;
 }
 
 .quick-card strong{
   color: var(--white);
-  font-size: 1rem;
+  font-size: 1.08rem;
   line-height: 1.15;
 }
 
@@ -205,7 +205,7 @@ html{
   align-items:center;
   justify-content:center;
   flex: 1;
-  min-height: 320px;
+  min-height: 300px;
   padding: 50px 25px;
   overflow: hidden;
   background:
@@ -226,7 +226,7 @@ html{
 /* O segredo do “não mexe”: fonte monoespaçada ou tabular nums */
 .clock-time{
   margin-bottom: calc(14px * var(--ui-scale));
-  font-size: clamp(42px, 5.4vw, 82px);
+  font-size: clamp(44px, 5vw, 76px);
   line-height: .92;
   font-weight: 800;
   letter-spacing: 2px;
@@ -455,6 +455,18 @@ html{
 .card-chooser{
   flex: 1;
   display: flex;
+}
+
+.center-personal-card{
+  flex: 0 0 auto;
+}
+
+.center-personal-card .link-group{
+  padding: calc(12px * var(--ui-scale));
+}
+
+.center-personal-card .link-pills a{
+  min-height: calc(40px * var(--ui-scale));
 }
 
 /* =========================
@@ -826,18 +838,17 @@ html{
     --col-right: 310px;
   }
 
-  .card-clock{ min-height: 288px; }
+  .card-clock{ min-height: 270px; }
   .card-calendar{ min-height: 372px; }
   .card-weather,
   .card-links,
   .card-shortcuts{ min-height: 104px; }
-  .clock-time{ font-size: 60px; }
+  .clock-time{ font-size: 56px; }
   .calendar-grid{ gap: 4px; }
   .calendar-meta{ margin-top: 6px; gap: 3px; }
   .countdown-box{ margin-top: 6px; padding: 6px; }
   .chooser-item{ min-height: 86px; }
-  .quick-card{ min-height: 70px; }
-  .quick-grid-spacer{ min-height: 70px; }
+  .quick-card{ min-height: 78px; }
 
   .news-wrap{
     max-width: 1080px;
@@ -889,7 +900,7 @@ html{
 
   /* relógio menor (e sem ficar dançando) */
   .clock-time{
-    font-size: 54px;
+    font-size: 52px;
     line-height: .92;
     margin-bottom: 8px;
     letter-spacing: 1px;
@@ -920,7 +931,7 @@ html{
   .link-pills{ gap: 5px; }
   .link-pills a{ font-size: 0.8rem; min-height: 32px; }
 
-  .chooser-item{ min-height: 74px; padding: 9px; border-radius: 16px; }
+  .chooser-item{ min-height: 80px; padding: 10px; border-radius: 16px; }
   .chooser-icon{ width: 42px; height: 42px; border-radius: 12px; font-size: 16px; margin-bottom: 5px; }
   .chooser-desc{ font-size: 0.82rem; }
 
