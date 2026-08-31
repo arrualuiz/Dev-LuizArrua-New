@@ -353,6 +353,55 @@ html{
   gap: calc(5px * var(--ui-scale));
 }
 
+.link-groups{
+  width: 100%;
+  display: grid;
+  gap: calc(10px * var(--ui-scale));
+}
+
+.link-group{
+  width: 100%;
+  padding: calc(9px * var(--ui-scale));
+  border-radius: calc(10px * var(--ui-scale));
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.045);
+}
+
+.link-group h4{
+  margin: 0 0 calc(7px * var(--ui-scale));
+  color: #9dbff9;
+  font-size: 0.82rem;
+  line-height: 1.2;
+}
+
+.link-pills{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(6px * var(--ui-scale));
+}
+
+.link-pills a{
+  min-height: calc(30px * var(--ui-scale));
+  padding: calc(7px * var(--ui-scale)) calc(8px * var(--ui-scale));
+  border-radius: 999px;
+  border: 1px solid rgba(109,170,255,0.18);
+  background: rgba(109,170,255,0.08);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.link-pills a:hover{
+  color: #9dbff9;
+  border-color: rgba(109,170,255,0.34);
+  background: rgba(109,170,255,0.12);
+}
+
 .card-links .card-inner,
 .card-shortcuts .card-inner{
   align-items:center;
@@ -832,6 +881,10 @@ html{
   .quick-grid{ gap: 10px; }
   .link-list{ gap: 4px; }
   .link-list a{ font-size: 0.9rem; }
+  .link-groups{ gap: 7px; }
+  .link-group{ padding: 7px; }
+  .link-pills{ gap: 5px; }
+  .link-pills a{ font-size: 0.72rem; min-height: 25px; }
 
   .chooser-item{ min-height: 74px; padding: 9px; border-radius: 16px; }
   .chooser-icon{ width: 42px; height: 42px; border-radius: 12px; font-size: 16px; margin-bottom: 5px; }

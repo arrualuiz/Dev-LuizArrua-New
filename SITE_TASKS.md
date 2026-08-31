@@ -8,6 +8,7 @@
 - [x] Adicionar timestamp no cabeçalho das páginas principais.
 - [x] Separar hora no centro e data no canto direito do cabeçalho.
 - [x] Refinar responsividade da tela inicial e do Dashboard / News para monitor menor.
+- [x] Atualizar seção de links da página principal com registros, formulários, dashboards e links pessoais.
 - [ ] Revisar links fáceis do dashboard (`Links` e `Atalhos`) e separar o que será público do que vai para área logada.
 
 ## Páginas
