@@ -839,23 +839,30 @@ html{
 /* 1440x900 e similares */
 @media (max-width: 1500px){
   :root{
-    --ui-scale: 0.64;
+    --ui-scale: 0.62;
     --col-left: 320px;
     --col-center: 300px;
     --col-right: 320px;
   }
 
-  .card-clock{ min-height: 220px; padding: 30px 18px; }
-  .card-calendar{ min-height: 330px; }
+  #app{ margin-bottom: 8px; }
+  .footer{ margin-top: 8px; }
+  .card-clock{ min-height: 204px; padding: 24px 16px; }
+  .card-calendar{ min-height: 318px; }
   .card-weather,
   .card-links,
-  .card-shortcuts{ min-height: 104px; }
-  .clock-time{ font-size: 50px; }
+  .card-shortcuts{ min-height: 96px; }
+  .clock-time{ font-size: 48px; }
   .calendar-grid{ gap: 4px; }
   .calendar-meta{ margin-top: 6px; gap: 3px; }
   .countdown-box{ margin-top: 6px; padding: 7px 8px; }
-  .chooser-item{ min-height: 86px; }
-  .quick-card{ min-height: 78px; }
+  .chooser-item{ min-height: 80px; }
+  .quick-card{ min-height: 72px; }
+  .right-column,
+  .center-column{ gap: 10px; }
+  .link-groups{ gap: 8px; }
+  .link-group{ padding: 7px; }
+  .link-pills a{ min-height: 31px; }
 
   .news-wrap{
     max-width: 1080px;
