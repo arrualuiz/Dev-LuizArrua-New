@@ -81,8 +81,9 @@ html{
 
 /* Right stack */
 .center-column{
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: auto 1fr auto;
   gap: var(--gap);
   min-width: 0;
 }
@@ -94,41 +95,60 @@ html{
   min-width: 0;
 }
 
-.center-action{
-  min-height: calc(86px * var(--ui-scale));
-  padding: calc(12px * var(--ui-scale));
+.quick-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+}
+
+.quick-card{
+  min-height: calc(82px * var(--ui-scale));
+  padding: calc(11px * var(--ui-scale));
   border-radius: calc(18px * var(--ui-scale));
   background:
     radial-gradient(circle at 18% 14%, rgba(255,255,255,0.13), transparent 28%),
-    linear-gradient(145deg, rgba(37,99,235,0.40), rgba(9,18,34,0.88));
+    linear-gradient(145deg, rgba(28,46,76,0.92), rgba(9,18,34,0.86));
   border: 1px solid rgba(150,180,220,0.12);
   box-shadow: 0 14px 34px rgba(0,0,0,0.34);
   display:flex;
-  flex-direction:row;
+  flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  gap: calc(12px * var(--ui-scale));
+  gap: calc(5px * var(--ui-scale));
   transition: transform .22s ease, border-color .22s ease;
 }
 
-.center-action:hover{
+.quick-card:hover{
   transform: translateY(-2px) scale(1.01);
   border-color: rgba(109,170,255,0.22);
 }
 
-.center-action strong{
-  display: block;
-  color: var(--white);
-  font-size: 1rem;
-  line-height: 1.15;
+.quick-grid:first-child .quick-card:nth-child(1){ background: linear-gradient(145deg, rgba(37,99,235,0.46), rgba(9,18,34,0.88)); }
+.quick-grid:first-child .quick-card:nth-child(2){ background: linear-gradient(145deg, rgba(20,184,166,0.34), rgba(9,18,34,0.88)); }
+.quick-grid-spacer{
+  min-height: calc(82px * var(--ui-scale));
 }
 
-.center-action small{
-  display:block;
-  margin-top: 3px;
-  color: var(--muted);
-  font-size: 0.82rem;
+.quick-label{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width: calc(34px * var(--ui-scale));
+  min-height: calc(24px * var(--ui-scale));
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(109,170,255,0.10);
+  color: #9dbff9;
+  border: 1px solid rgba(109,170,255,0.18);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.quick-card strong{
+  color: var(--white);
+  font-size: 0.9rem;
+  line-height: 1.15;
 }
 
 /* =========================
@@ -181,12 +201,14 @@ html{
    - evita “mexer” com segundos
    ========================= */
 .card-clock{
+  grid-column: 1 / -1;
+  grid-row: 2;
   display:flex;
   align-items:center;
   justify-content:center;
   flex: 1;
-  min-height: 300px;
-  padding: 25px 10px;
+  min-height: 320px;
+  padding: 100px 20px;
   overflow: hidden;
   background:
     radial-gradient(circle at 24% 18%, rgba(109,170,255,0.15), transparent 30%),
@@ -206,7 +228,7 @@ html{
 /* O segredo do “não mexe”: fonte monoespaçada ou tabular nums */
 .clock-time{
   margin-bottom: calc(14px * var(--ui-scale));
-  font-size: clamp(42px, 5.2vw, 78px);
+  font-size: clamp(42px, 5.4vw, 82px);
   line-height: .92;
   font-weight: 800;
   letter-spacing: 2px;
@@ -391,13 +413,13 @@ html{
 }
 
 .link-pills a{
-  min-height: calc(38px * var(--ui-scale));
-  padding: calc(8px * var(--ui-scale)) calc(9px * var(--ui-scale));
+  min-height: calc(44px * var(--ui-scale));
+  padding: calc(10px * var(--ui-scale)) calc(10px * var(--ui-scale));
   border-radius: calc(13px * var(--ui-scale));
   border: 1px solid rgba(109,170,255,0.16);
   background: rgba(8,18,34,0.72);
   color: var(--white);
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   font-weight: 700;
   line-height: 1.15;
   display: flex;
@@ -433,14 +455,6 @@ html{
 .card-chooser{
   flex: 1;
   display: flex;
-}
-
-.center-links{
-  flex: 0 0 auto;
-}
-
-.social-card .link-pills{
-  width: 100%;
 }
 
 /* =========================
@@ -822,7 +836,8 @@ html{
   .calendar-meta{ margin-top: 6px; gap: 3px; }
   .countdown-box{ margin-top: 6px; padding: 6px; }
   .chooser-item{ min-height: 86px; }
-  .center-action{ min-height: 58px; }
+  .quick-card{ min-height: 64px; }
+  .quick-grid-spacer{ min-height: 64px; }
 
   .news-wrap{
     max-width: 1080px;
@@ -870,6 +885,7 @@ html{
   /* diminui gaps e padding geral */
   .dashboard-grid{ gap: 10px; }
   .card{ padding: 9px; border-radius: 10px; }
+  .card-clock{ padding: 100px 20px; }
 
   /* relógio menor (e sem ficar dançando) */
   .clock-time{
@@ -897,13 +913,12 @@ html{
   /* right column mais tight */
   .right-column{ gap: 10px; }
   .center-column{ gap: 10px; }
-  .center-action{ min-height: 56px; }
   .link-list{ gap: 4px; }
   .link-list a{ font-size: 0.9rem; }
   .link-groups{ gap: 7px; }
   .link-group{ padding: 7px; }
   .link-pills{ gap: 5px; }
-  .link-pills a{ font-size: 0.72rem; min-height: 25px; }
+  .link-pills a{ font-size: 0.78rem; min-height: 30px; }
 
   .chooser-item{ min-height: 74px; padding: 9px; border-radius: 16px; }
   .chooser-icon{ width: 42px; height: 42px; border-radius: 12px; font-size: 16px; margin-bottom: 5px; }
@@ -955,7 +970,17 @@ html{
     flex-direction:column;
   }
 
-  .center-action{ flex-direction: column; }
+  .quick-grid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .quick-grid .quick-card{
+    grid-column: auto !important;
+    grid-row: auto !important;
+    transform: none !important;
+  }
 
   #weather-card,
   #calendar-card,
