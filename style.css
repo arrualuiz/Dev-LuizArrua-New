@@ -80,8 +80,15 @@ html{
 .right-column  { grid-column: 3; grid-row: 1 / span 2; }
 
 /* Right stack */
-.right-column,
 .center-column{
+  display:grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: auto 1fr auto;
+  gap: var(--gap);
+  min-width: 0;
+}
+
+.right-column{
   display:flex;
   flex-direction:column;
   gap: var(--gap);
@@ -89,13 +96,11 @@ html{
 }
 
 .quick-grid{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--gap);
+  display: contents;
 }
 
 .quick-card{
-  min-height: calc(76px * var(--ui-scale));
+  min-height: calc(82px * var(--ui-scale));
   padding: calc(11px * var(--ui-scale));
   border-radius: calc(18px * var(--ui-scale));
   background:
@@ -112,8 +117,15 @@ html{
   transition: transform .22s ease, border-color .22s ease;
 }
 
+.quick-grid:first-child .quick-card:nth-child(1){ grid-column: 1 / span 2; grid-row: 1; }
+.quick-grid:first-child .quick-card:nth-child(2){ grid-column: 3 / span 2; grid-row: 1; transform: translateY(calc(8px * var(--ui-scale))); }
+.quick-grid:first-child .quick-card:nth-child(3){ grid-column: 5 / span 2; grid-row: 1; transform: translateY(calc(-2px * var(--ui-scale))); }
+.quick-grid:last-child .quick-card:nth-child(1){ grid-column: 1 / span 2; grid-row: 3; transform: translateY(calc(-5px * var(--ui-scale))); }
+.quick-grid:last-child .quick-card:nth-child(2){ grid-column: 3 / span 2; grid-row: 3; transform: translateY(calc(6px * var(--ui-scale))); }
+.quick-grid:last-child .quick-card:nth-child(3){ grid-column: 5 / span 2; grid-row: 3; transform: translateY(calc(-5px * var(--ui-scale))); }
+
 .quick-card:hover{
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.01);
   border-color: rgba(109,170,255,0.22);
 }
 
@@ -195,11 +207,14 @@ html{
    - evita “mexer” com segundos
    ========================= */
 .card-clock{
+  grid-column: 1 / -1;
+  grid-row: 2;
   display:flex;
   align-items:center;
   justify-content:center;
   flex: 1;
   min-height: 320px;
+  overflow: hidden;
   background:
     radial-gradient(circle at 24% 18%, rgba(109,170,255,0.15), transparent 30%),
     linear-gradient(145deg, rgba(21,35,59,0.88), rgba(9,16,31,0.82));
@@ -218,7 +233,7 @@ html{
 /* O segredo do “não mexe”: fonte monoespaçada ou tabular nums */
 .clock-time{
   margin-bottom: calc(14px * var(--ui-scale));
-  font-size: clamp(42px, 6.2vw, 96px);
+  font-size: clamp(42px, 5.4vw, 82px);
   line-height: .92;
   font-weight: 800;
   letter-spacing: 2px;
@@ -826,7 +841,7 @@ html{
   .calendar-meta{ margin-top: 6px; gap: 3px; }
   .countdown-box{ margin-top: 6px; padding: 6px; }
   .chooser-item{ min-height: 86px; }
-  .quick-card{ min-height: 54px; }
+  .quick-card{ min-height: 58px; }
 
   .news-wrap{
     max-width: 1080px;
@@ -901,7 +916,11 @@ html{
   /* right column mais tight */
   .right-column{ gap: 10px; }
   .center-column{ gap: 10px; }
-  .quick-grid{ gap: 10px; }
+  .quick-grid:first-child .quick-card:nth-child(2),
+  .quick-grid:last-child .quick-card:nth-child(2){ transform: translateY(4px); }
+  .quick-grid:first-child .quick-card:nth-child(3),
+  .quick-grid:last-child .quick-card:nth-child(1),
+  .quick-grid:last-child .quick-card:nth-child(3){ transform: translateY(-3px); }
   .link-list{ gap: 4px; }
   .link-list a{ font-size: 0.9rem; }
   .link-groups{ gap: 7px; }
@@ -949,8 +968,26 @@ html{
 
   .dashboard-grid,
   .news-grid,
-  .news-col-news{
+  .news-col-news,
+  .center-column{
     grid-template-columns: 1fr;
+  }
+
+  .center-column{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .quick-grid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .quick-grid .quick-card{
+    grid-column: auto !important;
+    grid-row: auto !important;
+    transform: none !important;
   }
 
   #weather-card,
