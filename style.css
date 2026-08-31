@@ -81,9 +81,8 @@ html{
 
 /* Right stack */
 .center-column{
-  display:grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-template-rows: auto 1fr auto;
+  display:flex;
+  flex-direction:column;
   gap: var(--gap);
   min-width: 0;
 }
@@ -95,66 +94,41 @@ html{
   min-width: 0;
 }
 
-.quick-grid{
-  display: contents;
-}
-
-.quick-card{
-  min-height: calc(82px * var(--ui-scale));
-  padding: calc(11px * var(--ui-scale));
+.center-action{
+  min-height: calc(86px * var(--ui-scale));
+  padding: calc(12px * var(--ui-scale));
   border-radius: calc(18px * var(--ui-scale));
   background:
     radial-gradient(circle at 18% 14%, rgba(255,255,255,0.13), transparent 28%),
-    linear-gradient(145deg, rgba(28,46,76,0.92), rgba(9,18,34,0.86));
+    linear-gradient(145deg, rgba(37,99,235,0.40), rgba(9,18,34,0.88));
   border: 1px solid rgba(150,180,220,0.12);
   box-shadow: 0 14px 34px rgba(0,0,0,0.34);
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
   justify-content:center;
   align-items:center;
   text-align:center;
-  gap: calc(5px * var(--ui-scale));
+  gap: calc(12px * var(--ui-scale));
   transition: transform .22s ease, border-color .22s ease;
 }
 
-.quick-grid:first-child .quick-card:nth-child(1){ grid-column: 1 / span 2; grid-row: 1; }
-.quick-grid:first-child .quick-card:nth-child(2){ grid-column: 3 / span 2; grid-row: 1; transform: translateY(calc(8px * var(--ui-scale))); }
-.quick-grid:first-child .quick-card:nth-child(3){ grid-column: 5 / span 2; grid-row: 1; transform: translateY(calc(-2px * var(--ui-scale))); }
-.quick-grid:last-child .quick-card:nth-child(1){ grid-column: 1 / span 2; grid-row: 3; transform: translateY(calc(-5px * var(--ui-scale))); }
-.quick-grid:last-child .quick-card:nth-child(2){ grid-column: 3 / span 2; grid-row: 3; transform: translateY(calc(6px * var(--ui-scale))); }
-.quick-grid:last-child .quick-card:nth-child(3){ grid-column: 5 / span 2; grid-row: 3; transform: translateY(calc(-5px * var(--ui-scale))); }
-
-.quick-card:hover{
+.center-action:hover{
   transform: translateY(-2px) scale(1.01);
   border-color: rgba(109,170,255,0.22);
 }
 
-.quick-grid:first-child .quick-card:nth-child(1){ background: linear-gradient(145deg, rgba(37,99,235,0.46), rgba(9,18,34,0.88)); }
-.quick-grid:first-child .quick-card:nth-child(2){ background: linear-gradient(145deg, rgba(20,184,166,0.34), rgba(9,18,34,0.88)); }
-.quick-grid:first-child .quick-card:nth-child(3){ background: linear-gradient(145deg, rgba(168,85,247,0.34), rgba(9,18,34,0.88)); }
-.quick-grid:last-child .quick-card:nth-child(1){ background: linear-gradient(145deg, rgba(236,72,153,0.30), rgba(9,18,34,0.88)); }
-.quick-grid:last-child .quick-card:nth-child(2){ background: linear-gradient(145deg, rgba(34,197,94,0.32), rgba(9,18,34,0.88)); }
-.quick-grid:last-child .quick-card:nth-child(3){ background: linear-gradient(145deg, rgba(14,165,233,0.34), rgba(9,18,34,0.88)); }
-
-.quick-label{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width: calc(34px * var(--ui-scale));
-  min-height: calc(24px * var(--ui-scale));
-  padding: 3px 7px;
-  border-radius: 999px;
-  background: rgba(109,170,255,0.10);
-  color: #9dbff9;
-  border: 1px solid rgba(109,170,255,0.18);
-  font-size: 0.76rem;
-  font-weight: 800;
+.center-action strong{
+  display: block;
+  color: var(--white);
+  font-size: 1rem;
+  line-height: 1.15;
 }
 
-.quick-card strong{
-  color: var(--white);
-  font-size: 0.9rem;
-  line-height: 1.15;
+.center-action small{
+  display:block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.82rem;
 }
 
 /* =========================
@@ -207,13 +181,12 @@ html{
    - evita “mexer” com segundos
    ========================= */
 .card-clock{
-  grid-column: 1 / -1;
-  grid-row: 2;
   display:flex;
   align-items:center;
   justify-content:center;
   flex: 1;
-  min-height: 320px;
+  min-height: 300px;
+  padding: 25px 10px;
   overflow: hidden;
   background:
     radial-gradient(circle at 24% 18%, rgba(109,170,255,0.15), transparent 30%),
@@ -233,7 +206,7 @@ html{
 /* O segredo do “não mexe”: fonte monoespaçada ou tabular nums */
 .clock-time{
   margin-bottom: calc(14px * var(--ui-scale));
-  font-size: clamp(42px, 5.4vw, 82px);
+  font-size: clamp(42px, 5.2vw, 78px);
   line-height: .92;
   font-weight: 800;
   letter-spacing: 2px;
@@ -460,6 +433,14 @@ html{
 .card-chooser{
   flex: 1;
   display: flex;
+}
+
+.center-links{
+  flex: 0 0 auto;
+}
+
+.social-card .link-pills{
+  width: 100%;
 }
 
 /* =========================
@@ -841,7 +822,7 @@ html{
   .calendar-meta{ margin-top: 6px; gap: 3px; }
   .countdown-box{ margin-top: 6px; padding: 6px; }
   .chooser-item{ min-height: 86px; }
-  .quick-card{ min-height: 58px; }
+  .center-action{ min-height: 58px; }
 
   .news-wrap{
     max-width: 1080px;
@@ -916,11 +897,7 @@ html{
   /* right column mais tight */
   .right-column{ gap: 10px; }
   .center-column{ gap: 10px; }
-  .quick-grid:first-child .quick-card:nth-child(2),
-  .quick-grid:last-child .quick-card:nth-child(2){ transform: translateY(4px); }
-  .quick-grid:first-child .quick-card:nth-child(3),
-  .quick-grid:last-child .quick-card:nth-child(1),
-  .quick-grid:last-child .quick-card:nth-child(3){ transform: translateY(-3px); }
+  .center-action{ min-height: 56px; }
   .link-list{ gap: 4px; }
   .link-list a{ font-size: 0.9rem; }
   .link-groups{ gap: 7px; }
@@ -978,17 +955,7 @@ html{
     flex-direction:column;
   }
 
-  .quick-grid{
-    display:grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .quick-grid .quick-card{
-    grid-column: auto !important;
-    grid-row: auto !important;
-    transform: none !important;
-  }
+  .center-action{ flex-direction: column; }
 
   #weather-card,
   #calendar-card,

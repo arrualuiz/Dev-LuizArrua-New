@@ -78,20 +78,13 @@
 
       <!-- CENTER COLUMN -->
       <section class="center-column" id="center-column">
-        <div class="quick-grid" aria-label="Atalhos principais">
-          <a class="quick-card" href="news.html">
-            <span class="quick-label">News</span>
-            <strong>Dashboard</strong>
-          </a>
-          <a class="quick-card" href="curriculo.html">
-            <span class="quick-label">CV</span>
-            <strong>Currículo</strong>
-          </a>
-          <a class="quick-card" href="https://docs.google.com/spreadsheets/d/1UeR1-GC2-U8a5WShbocwCHnOX6UHKkaPvW91mfjgjZY/edit?resourcekey=&gid=607868478#gid=607868478" target="_blank" rel="noopener">
-            <span class="quick-label">Saldo</span>
-            <strong>Saldos</strong>
-          </a>
-        </div>
+        <a class="center-action" href="news.html" aria-label="Ir para Dashboard / News">
+          <span class="chooser-icon">📰</span>
+          <span>
+            <strong>Dashboard / News</strong>
+            <small>Notícias, clima, moedas e widgets.</small>
+          </span>
+        </a>
 
         <section class="card card-clock" id="clock-card">
           <div class="clock-inner">
@@ -100,20 +93,42 @@
           </div>
         </section>
 
-        <div class="quick-grid" aria-label="Links externos">
-          <a class="quick-card" href="https://docs.google.com/spreadsheets/d/1-SzQhfSYUS2zaAIYmec49eruJfaF_RNcFJmDyxQwtuk/edit?resourcekey=&gid=359995757#gid=359995757" target="_blank" rel="noopener">
-            <span class="quick-label">Fluxo</span>
-            <strong>Entradas</strong>
-          </a>
-          <a class="quick-card" href="https://github.com/arrualuiz" target="_blank" rel="noopener">
-            <span class="quick-label">Git</span>
-            <strong>GitHub</strong>
-          </a>
-          <a class="quick-card" href="https://www.linkedin.com/in/luizarrua/" target="_blank" rel="noopener">
-            <span class="quick-label">In</span>
-            <strong>LinkedIn</strong>
-          </a>
-        </div>
+        <section class="card card-shortcuts center-links" id="links-2">
+          <div class="card-inner is-center">
+            <h3 class="card-title">Painéis e pessoais</h3>
+
+            <div class="link-groups">
+              <div class="link-group">
+                <h4>Dashboards</h4>
+                <div class="link-pills">
+                  <a href="https://docs.google.com/spreadsheets/d/1hgSeSzOpBzxyJji-S2GPG8xECaZlpr0RlBsaCNQrLZE/edit?gid=1940484478#gid=1940484478" target="_blank" rel="noopener">Acompanha preços</a>
+                  <a href="https://docs.google.com/spreadsheets/d/1Q-Ccl5UngOts5X0yCPJ04USDVjk6rCciCyynOlPrVN0/edit?gid=1288889714#gid=1288889714" target="_blank" rel="noopener">Notificações Android</a>
+                </div>
+              </div>
+
+              <div class="link-group">
+                <h4>Aplicativos/contas</h4>
+                <div class="link-pills">
+                  <a href="https://docs.google.com/forms/d/1Dkfke3wT90jcemQVvwjG_o6UeRKwNTqbu3EC2Gl27zQ/edit" target="_blank" rel="noopener">Editar</a>
+                  <a href="https://forms.gle/rtE7iPfwyfRokg7c8" target="_blank" rel="noopener">Preencher</a>
+                </div>
+              </div>
+
+              <div class="link-group">
+                <h4>Pessoais</h4>
+                <div class="link-pills">
+                  <a href="https://docs.google.com/spreadsheets/d/1CqojjkZJM2e8eSAlAYsmq5snYd9BlJlreHAlZ6e0BKw/edit?gid=708432143#gid=708432143" target="_blank" rel="noopener">Compras</a>
+                  <a href="https://docs.google.com/spreadsheets/d/1G1gyhcbcL85jdhMs5vczmdw6Z9q0SVdNOudOGcQGuTo/edit?gid=0#gid=0" target="_blank" rel="noopener">Senhas</a>
+                  <a href="https://onedrive.live.com/personal/be7c329acde20099/_layouts/15/Doc.aspx?sourcedoc={d3fb22b0-4912-45eb-b2b4-6447f4291ba6}&action=edit&wd=target%28Capa.one%7C9fc22ce0-eb50-467d-adaf-79f94b65d101%2FLuiz%20Arrua%7C6217daab-aa67-413b-af9a-0a1b224355e6%2F%29&wdorigin=NavigationUrl" target="_blank" rel="noopener">Diário</a>
+                  <a href="https://docs.google.com/spreadsheets/d/1uKekN2-WY7RXxY40FsPXkbK_Vlq3EmYGDdpBXBT5-eA/edit?gid=394255261#gid=394255261" target="_blank" rel="noopener">Arrua</a>
+                  <a href="https://docs.google.com/spreadsheets/d/165jWGd2kUtaTsKwnb6eV3omBdIJgGSQP2yThbRM2fig/edit?gid=1386427151#gid=1386427151" target="_blank" rel="noopener">Rotina</a>
+                  <a href="https://docs.google.com/document/d/1HOkRRWSmfv0APuFFdrRwnjnmUm3n8DtMWDcXrI5wmks/edit?tab=t.kjjg5e5lezlj" target="_blank" rel="noopener">Tudo!</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
       </section>
 
       <!-- RIGHT COLUMN (stack) -->
@@ -157,59 +172,12 @@
           </div>
         </section>
 
-        <section class="card card-shortcuts" id="links-2">
+        <section class="card social-card" id="social-card">
           <div class="card-inner is-center">
-            <h3 class="card-title">Painéis e pessoais</h3>
-
-            <div class="link-groups">
-              <div class="link-group">
-                <h4>Dashboards</h4>
-                <div class="link-pills">
-                  <a href="https://docs.google.com/spreadsheets/d/1hgSeSzOpBzxyJji-S2GPG8xECaZlpr0RlBsaCNQrLZE/edit?gid=1940484478#gid=1940484478" target="_blank" rel="noopener">Acompanha preços</a>
-                  <a href="https://docs.google.com/spreadsheets/d/1Q-Ccl5UngOts5X0yCPJ04USDVjk6rCciCyynOlPrVN0/edit?gid=1288889714#gid=1288889714" target="_blank" rel="noopener">Notificações Android</a>
-                </div>
-              </div>
-
-              <div class="link-group">
-                <h4>Aplicativos/contas</h4>
-                <div class="link-pills">
-                  <a href="https://docs.google.com/forms/d/1Dkfke3wT90jcemQVvwjG_o6UeRKwNTqbu3EC2Gl27zQ/edit" target="_blank" rel="noopener">Editar</a>
-                  <a href="https://forms.gle/rtE7iPfwyfRokg7c8" target="_blank" rel="noopener">Preencher</a>
-                </div>
-              </div>
-
-              <div class="link-group">
-                <h4>Pessoais</h4>
-                <div class="link-pills">
-                  <a href="https://docs.google.com/spreadsheets/d/1CqojjkZJM2e8eSAlAYsmq5snYd9BlJlreHAlZ6e0BKw/edit?gid=708432143#gid=708432143" target="_blank" rel="noopener">Compras</a>
-                  <a href="https://docs.google.com/spreadsheets/d/1G1gyhcbcL85jdhMs5vczmdw6Z9q0SVdNOudOGcQGuTo/edit?gid=0#gid=0" target="_blank" rel="noopener">Senhas</a>
-                  <a href="https://onedrive.live.com/personal/be7c329acde20099/_layouts/15/Doc.aspx?sourcedoc={d3fb22b0-4912-45eb-b2b4-6447f4291ba6}&action=edit&wd=target%28Capa.one%7C9fc22ce0-eb50-467d-adaf-79f94b65d101%2FLuiz%20Arrua%7C6217daab-aa67-413b-af9a-0a1b224355e6%2F%29&wdorigin=NavigationUrl" target="_blank" rel="noopener">Diário</a>
-                  <a href="https://docs.google.com/spreadsheets/d/1uKekN2-WY7RXxY40FsPXkbK_Vlq3EmYGDdpBXBT5-eA/edit?gid=394255261#gid=394255261" target="_blank" rel="noopener">Arrua</a>
-                  <a href="https://docs.google.com/spreadsheets/d/165jWGd2kUtaTsKwnb6eV3omBdIJgGSQP2yThbRM2fig/edit?gid=1386427151#gid=1386427151" target="_blank" rel="noopener">Rotina</a>
-                  <a href="https://docs.google.com/document/d/1HOkRRWSmfv0APuFFdrRwnjnmUm3n8DtMWDcXrI5wmks/edit?tab=t.kjjg5e5lezlj" target="_blank" rel="noopener">Tudo!</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <section class="card card-chooser" id="chooser-card">
-          <div class="card-inner">
-            <h3 class="card-title is-center">Escolha uma área</h3>
-            
-            <div class="chooser-stack">
-              <a class="chooser-item" href="news.html" aria-label="Ir para Painel / News">
-                <div class="chooser-icon">📰</div>
-                <div class="chooser-title">Dashboard / News</div>
-                <div class="chooser-desc">Notícias, clima, moedas e widgets.</div>
-              </a>
-
-              <a class="chooser-item" href="curriculo.html" aria-label="Ir para Currículo oficial">
-                <div class="chooser-icon">👤</div>
-                <div class="chooser-title">Currículo oficial</div>
-                <div class="chooser-desc">Perfil público, GitHub hub e histórico profissional.</div>
-              </a>
+            <h3 class="card-title">Perfis</h3>
+            <div class="link-pills">
+              <a href="https://github.com/arrualuiz" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://www.linkedin.com/in/luizarrua/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
           </div>
         </section>
