@@ -87,6 +87,29 @@ if (exists("clock") && exists("date")) {
   setInterval(updateClock, 1000);
 }
 
+function updateHeaderClock() {
+  const headerClocks = document.querySelectorAll("[data-header-clock]");
+  if (!headerClocks.length) return;
+
+  const now = new Date();
+  const stamp = now.toLocaleString("pt-BR", {
+    timeZone: TIMEZONE,
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+
+  headerClocks.forEach((el) => {
+    el.textContent = stamp;
+  });
+}
+
+updateHeaderClock();
+setInterval(updateHeaderClock, 1000);
+
 // =====================
 // CALENDAR (só se existir)
 // =====================
