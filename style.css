@@ -76,9 +76,8 @@ html{
 /* Place blocks */
 #weather-card  { grid-column: 1; grid-row: 1; }
 #calendar-card { grid-column: 1; grid-row: 2; }
-.left-panels   { grid-column: 1; grid-row: 3; }
 #center-column { grid-column: 2; grid-row: 1 / span 2; }
-.right-column  { grid-column: 3; grid-row: 1 / span 3; }
+.right-column  { grid-column: 3; grid-row: 1 / span 2; }
 
 /* Right stack */
 .center-column{
@@ -458,16 +457,16 @@ html{
   display: flex;
 }
 
-.center-personal-card{
+.center-chooser{
   flex: 0 0 auto;
 }
 
-.center-personal-card .link-group{
-  padding: calc(12px * var(--ui-scale));
+.center-chooser .chooser-stack{
+  gap: calc(10px * var(--ui-scale));
 }
 
-.center-personal-card .link-pills a{
-  min-height: calc(40px * var(--ui-scale));
+.center-chooser .chooser-item{
+  min-height: calc(84px * var(--ui-scale));
 }
 
 /* =========================
@@ -839,7 +838,7 @@ html{
     --col-right: 320px;
   }
 
-  .card-clock{ min-height: 230px; padding: 34px 18px; }
+  .card-clock{ min-height: 220px; padding: 30px 18px; }
   .card-calendar{ min-height: 330px; }
   .card-weather,
   .card-links,
@@ -932,7 +931,7 @@ html{
   .link-pills{ gap: 5px; }
   .link-pills a{ font-size: 0.8rem; min-height: 32px; }
 
-  .chooser-item{ min-height: 80px; padding: 10px; border-radius: 16px; }
+  .chooser-item{ min-height: 74px; padding: 9px; border-radius: 16px; }
   .chooser-icon{ width: 42px; height: 42px; border-radius: 12px; font-size: 16px; margin-bottom: 5px; }
   .chooser-desc{ font-size: 0.82rem; }
 
@@ -996,7 +995,6 @@ html{
 
   #weather-card,
   #calendar-card,
-  .left-panels,
   #center-column,
   .right-column{
     grid-column: auto;
