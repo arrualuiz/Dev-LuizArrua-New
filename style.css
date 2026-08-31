@@ -570,6 +570,11 @@ html{
   transform: translateY(-1px);
 }
 .menu-link.subtle{ opacity: 0.9; }
+.menu-link.subtle{
+  background: rgba(109,170,255,0.035);
+  color: #9dbff9;
+  font-size: 0.94rem;
+}
 
 .menu-sep{
   height: 1px;
@@ -937,6 +942,7 @@ html{
   grid-template-columns: 220px 1fr;
   gap: calc(14px * var(--ui-scale));
   align-items: center;
+  text-align: center;
   padding: calc(12px * var(--ui-scale));
   border-radius: calc(14px * var(--ui-scale));
   border: 1px solid rgba(109,170,255,0.18);
@@ -1016,6 +1022,7 @@ html{
   border-radius: calc(12px * var(--ui-scale));
   background: rgba(13,21,38,0.35);
   border: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
 }
 
 .cv-subtitle{
@@ -1048,6 +1055,7 @@ html{
 .cv-tags{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
   margin-top: 12px;
 }
@@ -1075,6 +1083,7 @@ html{
   border-radius: calc(12px * var(--ui-scale));
   border: 1px solid rgba(109,170,255,0.16);
   background: rgba(255,255,255,0.035);
+  text-align: center;
 }
 
 .cv-highlight h3,
@@ -1118,6 +1127,10 @@ html{
   gap: 12px;
 }
 
+.cv-project-top{
+  align-items: center;
+}
+
 .cv-small-link,
 .cv-project a{
   color: #9dbff9;
@@ -1154,6 +1167,10 @@ html{
   border-radius: calc(14px * var(--ui-scale));
   background: rgba(255,255,255,0.025);
   border: 1px solid rgba(255,255,255,0.055);
+  text-align: center;
+  max-width: 220px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cv-application-details summary{
@@ -1170,6 +1187,7 @@ html{
   font-weight: 800;
   font-size: 0.86rem;
   list-style: none;
+  margin: 0 auto;
 }
 
 .cv-application-details summary::-webkit-details-marker{
@@ -1178,6 +1196,10 @@ html{
 
 .cv-application-details[open] summary{
   margin-bottom: 14px;
+}
+
+.cv-application-box:has(.cv-application-details[open]){
+  max-width: none;
 }
 
 .cv-copy-grid{
@@ -1197,6 +1219,7 @@ html{
   border-radius: calc(12px * var(--ui-scale));
   border: 1px solid rgba(255,255,255,0.08);
   background: rgba(4,18,38,0.55);
+  text-align: left;
 }
 
 .cv-copy-card h3{
