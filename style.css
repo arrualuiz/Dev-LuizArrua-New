@@ -11,7 +11,7 @@
      CONTROLE DE ESCALA GLOBAL
      (mexe aqui pra deixar tudo menor/maior)
      ========================= */
-  --ui-scale: 0.74;
+  --ui-scale: 0.70;
 
   /* métricas base */
   --gap: calc(18px * var(--ui-scale));
@@ -23,9 +23,9 @@
      - centro FIXO (não muda com o relógio)
      - esquerda maior (texto não quebra) e direita maior
      ========================= */
-  --col-left: 340px;
-  --col-center: 500px;
-  --col-right: 340px;
+  --col-left: 320px;
+  --col-center: 470px;
+  --col-right: 320px;
 
   /* largura máxima do app */
   --app-max: calc(var(--col-left) + var(--col-center) + var(--col-right) + (2 * var(--gap)));
@@ -449,7 +449,7 @@ html{
 .topbar-clock{
   justify-self: center;
   color: var(--white);
-  font-size: clamp(12px, 0.85vw, 14px);
+  font-size: clamp(13px, 0.95vw, 16px);
   font-weight: 800;
   letter-spacing: 0;
   font-variant-numeric: tabular-nums;
@@ -458,6 +458,22 @@ html{
   border-radius: 999px;
   background: rgba(13,21,38,0.58);
   border: 1px solid rgba(255,255,255,0.08);
+}
+
+.topbar-actions{
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: calc(10px * var(--ui-scale));
+}
+
+.topbar-date{
+  color: var(--white);
+  font-size: clamp(11px, 0.78vw, 13px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.86;
+  white-space: nowrap;
 }
 
 .menu-btn:hover{ transform: translateY(-1px); }
@@ -568,9 +584,9 @@ html{
 .news-page{ min-height: 100%; }
 
 .news-wrap{
-  max-width: 1500px;
-  width: min(1500px, 94vw);
-  margin: 86px auto 22px;
+  max-width: 1220px;
+  width: min(1220px, 94vw);
+  margin: 24px auto 18px;
   padding: 12px;
 }
 
@@ -587,7 +603,7 @@ html{
 
 .news-grid{
   display: grid;
-  grid-template-columns: 320px 1fr 300px;
+  grid-template-columns: 280px minmax(420px, 1fr) 240px;
   gap: calc(18px * var(--ui-scale));
   align-items: start;
   justify-content: center;
@@ -602,7 +618,7 @@ html{
 
 .news-col-news{
   display: grid;
-  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
   gap: calc(18px * var(--ui-scale));
 }
 
@@ -667,33 +683,58 @@ html{
 /* 1440x900 e similares */
 @media (max-width: 1500px){
   :root{
-    --ui-scale: 0.68;
-    --col-left: 290px;
-    --col-center: 420px;
-    --col-right: 290px;
+    --ui-scale: 0.64;
+    --col-left: 280px;
+    --col-center: 390px;
+    --col-right: 280px;
   }
 
-  .card-clock{ min-height: 468px; }
-  .card-calendar{ min-height: 388px; }
+  .card-clock{ min-height: 448px; }
+  .card-calendar{ min-height: 372px; }
   .card-weather,
   .card-links,
   .card-shortcuts{ min-height: 104px; }
-  .clock-time{ font-size: 72px; }
+  .clock-time{ font-size: 66px; }
   .calendar-grid{ gap: 4px; }
   .calendar-meta{ margin-top: 6px; gap: 3px; }
   .countdown-box{ margin-top: 6px; padding: 6px; }
   .chooser-item{ min-height: 86px; }
+
+  .news-wrap{
+    max-width: 1080px;
+    margin-top: 14px;
+  }
+
+  .news-grid{
+    grid-template-columns: 240px minmax(360px, 1fr) 220px;
+    gap: 10px;
+  }
+
+  .news-col,
+  .news-col-news{
+    gap: 10px;
+  }
+
+  .news-card{
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .news-list a{
+    font-size: 0.92rem;
+    line-height: 1.42;
+  }
 }
 
 /* NOTEBOOK 1366x768 */
 @media (max-width: 1400px){
   :root{
-    --ui-scale: 0.62;
+    --ui-scale: 0.60;
 
     /* colunas menores, mas ainda 3 colunas */
-    --col-left: 280px;
-    --col-center: 390px;
-    --col-right: 270px;
+    --col-left: 260px;
+    --col-center: 370px;
+    --col-right: 250px;
   }
 
   /* corta "respiro" vertical */
@@ -708,7 +749,7 @@ html{
 
   /* relógio menor (e sem ficar dançando) */
   .clock-time{
-    font-size: 64px;
+    font-size: 60px;
     line-height: .92;
     margin-bottom: 8px;
     letter-spacing: 1px;
@@ -756,6 +797,42 @@ html{
 
   #app{
     transform: none;
+  }
+}
+
+@media (max-width: 980px){
+  .topbar{
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .topbar-clock{
+    justify-self: center;
+  }
+
+  .topbar-date{
+    display: none;
+  }
+
+  .dashboard-grid,
+  .news-grid,
+  .news-col-news{
+    grid-template-columns: 1fr;
+  }
+
+  #weather-card,
+  #calendar-card,
+  #clock-card,
+  .right-column{
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .card-clock{
+    min-height: 240px;
+  }
+
+  .clock-time{
+    font-size: 48px;
   }
 }
 /* =========================
@@ -884,7 +961,7 @@ html{
 /* Sections */
 .cv-section{
   width: 100%;
-  margin-top: calc(8px * var(--ui-scale));
+  margin-top: calc(18px * var(--ui-scale));
 }
 
 .cv-title{
@@ -895,8 +972,8 @@ html{
 
 /* Items */
 .cv-item{
-  margin-top: calc(12px * var(--ui-scale));
-  padding: calc(12px * var(--ui-scale));
+  margin-top: calc(18px * var(--ui-scale));
+  padding: calc(16px * var(--ui-scale));
   border-radius: calc(12px * var(--ui-scale));
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.05);
@@ -935,7 +1012,7 @@ html{
 }
 
 .cv-block{
-  padding: calc(10px * var(--ui-scale));
+  padding: calc(15px * var(--ui-scale));
   border-radius: calc(12px * var(--ui-scale));
   background: rgba(13,21,38,0.35);
   border: 1px solid rgba(255,255,255,0.05);
@@ -994,7 +1071,7 @@ html{
 .cv-highlight,
 .cv-project{
   min-height: 150px;
-  padding: calc(12px * var(--ui-scale));
+  padding: calc(16px * var(--ui-scale));
   border-radius: calc(12px * var(--ui-scale));
   border: 1px solid rgba(109,170,255,0.16);
   background: rgba(255,255,255,0.035);
@@ -1073,10 +1150,10 @@ html{
 }
 
 .cv-application-box{
-  padding: calc(14px * var(--ui-scale));
+  padding: calc(10px * var(--ui-scale));
   border-radius: calc(14px * var(--ui-scale));
-  background: rgba(109,170,255,0.08);
-  border: 1px solid rgba(109,170,255,0.18);
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.055);
 }
 
 .cv-application-details summary{
@@ -1084,13 +1161,14 @@ html{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
-  padding: 10px 14px;
+  min-height: 34px;
+  padding: 8px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(109,170,255,0.35);
-  color: #041226;
-  background: #9dbff9;
-  font-weight: 900;
+  border: 1px solid rgba(109,170,255,0.22);
+  color: #9dbff9;
+  background: rgba(109,170,255,0.08);
+  font-weight: 800;
+  font-size: 0.86rem;
   list-style: none;
 }
 
