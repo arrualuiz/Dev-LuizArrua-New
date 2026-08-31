@@ -839,7 +839,7 @@ html{
 /* 1440x900 e similares */
 @media (max-width: 1500px){
   :root{
-    --ui-scale: 0.58;
+    --ui-scale: 0.57;
     --col-left: 320px;
     --col-center: 300px;
     --col-right: 320px;
@@ -852,8 +852,8 @@ html{
     padding-bottom: 4px;
   }
   .footer{
-    margin-top: 4px;
-    font-size: 0.84rem;
+    margin-top: 2px;
+    font-size: 0.82rem;
   }
   .dashboard-grid{ gap: 9px; }
   .card{ padding: 8px; }
