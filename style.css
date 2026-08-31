@@ -23,9 +23,9 @@
      - centro FIXO (não muda com o relógio)
      - esquerda maior (texto não quebra) e direita maior
      ========================= */
-  --col-left: 350px;
-  --col-center: 390px;
-  --col-right: 350px;
+  --col-left: 360px;
+  --col-center: 360px;
+  --col-right: 360px;
 
   /* largura máxima do app */
   --app-max: calc(var(--col-left) + var(--col-center) + var(--col-right) + (2 * var(--gap)));
@@ -76,8 +76,9 @@ html{
 /* Place blocks */
 #weather-card  { grid-column: 1; grid-row: 1; }
 #calendar-card { grid-column: 1; grid-row: 2; }
+.left-panels   { grid-column: 1; grid-row: 3; }
 #center-column { grid-column: 2; grid-row: 1 / span 2; }
-.right-column  { grid-column: 3; grid-row: 1 / span 2; }
+.right-column  { grid-column: 3; grid-row: 1 / span 3; }
 
 /* Right stack */
 .center-column{
@@ -205,8 +206,8 @@ html{
   align-items:center;
   justify-content:center;
   flex: 1;
-  min-height: 300px;
-  padding: 50px 25px;
+  min-height: 250px;
+  padding: 42px 22px;
   overflow: hidden;
   background:
     radial-gradient(circle at 24% 18%, rgba(109,170,255,0.15), transparent 30%),
@@ -449,7 +450,7 @@ html{
 }
 
 .card-calendar{
-  min-height: 406px;
+  min-height: 360px;
 }
 
 .card-chooser{
@@ -833,17 +834,17 @@ html{
 @media (max-width: 1500px){
   :root{
     --ui-scale: 0.64;
-    --col-left: 310px;
-    --col-center: 340px;
-    --col-right: 310px;
+    --col-left: 320px;
+    --col-center: 300px;
+    --col-right: 320px;
   }
 
-  .card-clock{ min-height: 270px; }
-  .card-calendar{ min-height: 372px; }
+  .card-clock{ min-height: 230px; padding: 34px 18px; }
+  .card-calendar{ min-height: 330px; }
   .card-weather,
   .card-links,
   .card-shortcuts{ min-height: 104px; }
-  .clock-time{ font-size: 56px; }
+  .clock-time{ font-size: 50px; }
   .calendar-grid{ gap: 4px; }
   .calendar-meta{ margin-top: 6px; gap: 3px; }
   .countdown-box{ margin-top: 6px; padding: 6px; }
@@ -882,9 +883,9 @@ html{
     --ui-scale: 0.60;
 
     /* colunas menores, mas ainda 3 colunas */
-    --col-left: 290px;
-    --col-center: 320px;
-    --col-right: 290px;
+    --col-left: 300px;
+    --col-center: 280px;
+    --col-right: 300px;
   }
 
   /* corta "respiro" vertical */
@@ -896,11 +897,11 @@ html{
   /* diminui gaps e padding geral */
   .dashboard-grid{ gap: 10px; }
   .card{ padding: 9px; border-radius: 10px; }
-  .card-clock{ padding: 50px 25px; }
+  .card-clock{ padding: 32px 16px; }
 
   /* relógio menor (e sem ficar dançando) */
   .clock-time{
-    font-size: 52px;
+    font-size: 46px;
     line-height: .92;
     margin-bottom: 8px;
     letter-spacing: 1px;
@@ -995,6 +996,7 @@ html{
 
   #weather-card,
   #calendar-card,
+  .left-panels,
   #center-column,
   .right-column{
     grid-column: auto;
