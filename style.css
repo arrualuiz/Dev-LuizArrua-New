@@ -336,8 +336,10 @@ html{
 }
 
 .countdown-box{
-  width: min(100%, 318px);
+  width: min(calc(100% + 44px), 342px);
   margin-top: calc(10px * var(--ui-scale));
+  margin-left: -22px;
+  margin-right: -22px;
   padding: calc(10px * var(--ui-scale)) calc(12px * var(--ui-scale));
   border-radius: calc(16px * var(--ui-scale));
   background: linear-gradient(135deg, rgba(31, 47, 72, .72), rgba(16, 27, 44, .70));
@@ -347,7 +349,7 @@ html{
 
 .countdown-box p{
   margin: 0;
-  font-size: clamp(11px, 0.82vw, 13px);
+  font-size: clamp(9.7px, 0.74vw, 12px);
   line-height: 1.45;
   color: #9dbff9;
   white-space: nowrap;
@@ -1020,14 +1022,14 @@ html{
    ========================= */
 
 .countdown-box p{
-  font-size: clamp(11px, 0.82vw, 13px);
+  font-size: clamp(9.7px, 0.74vw, 12px);
   line-height: 1.45;
 }
 
 /* notebook 1366x768 */
 @media (max-width: 1400px){
   .countdown-box p{
-    font-size: 11px;
+    font-size: 9.8px;
     line-height: 1.35;
   }
 }

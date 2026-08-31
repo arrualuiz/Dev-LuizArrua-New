@@ -254,21 +254,21 @@ createCountdown(
   "2026-12-31T23:59:59",
   "contador",
   "🎉 Feliz 2027!",
-  (d, h, m, s) => `2027: ${d}d ${h}h ${m}m ${s}s 🎆`
+  (d, h, m, s) => `Faltam ${d}d ${h}h ${m}m ${s}s para 2027 🎆`
 );
 
 createCountdown(
   "2026-12-29T23:59:59",
   "contadorBia",
   "🎉 Parabéns meu amor!",
-  (d, h, m, s) => `Bia: ${d}d ${h}h ${m}m ${s}s 🤍`
+  (d, h, m, s) => `Faltam ${d}d ${h}h ${m}m ${s}s para aniversário da Bia 🤍`
 );
 
 createCountdown(
   "2027-01-07T23:59:59",
   "contadorLuiz",
   "🎉 Parabéns Luiz!",
-  (d, h, m, s) => `Meu niver: ${d}d ${h}h ${m}m ${s}s 🎉`
+  (d, h, m, s) => `Faltam ${d}d ${h}h ${m}m ${s}s para meu aniversário 🎉`
 );
 
 // =====================
