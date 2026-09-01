@@ -202,6 +202,7 @@ html{
    ========================= */
 .card-clock{
   display:flex;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
   flex: 1;
@@ -491,7 +492,6 @@ html{
   flex-direction:column;
   gap: calc(14px * var(--ui-scale));
   width:100%;
-  justify-content:center;
 }
 
 .chooser-item{
@@ -610,6 +610,7 @@ html{
   background: rgba(13,21,38,0.58);
   border: 1px solid rgba(255,255,255,0.08);
 }
+.menu-link.subtle{ opacity: 0.9; }
 
 .topbar-actions{
   justify-self: end;
@@ -657,6 +658,10 @@ html{
   z-index: 60;
   background: rgba(0,0,0,0.55);
 }
+/* =========================
+   OVERRIDE FINAL - Countdown menor (sem mexer no resto)
+   Cole isso NO FIM do arquivo
+   ========================= */
 
 .menu-panel{
   position: fixed;

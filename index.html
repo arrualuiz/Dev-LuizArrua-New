@@ -8,6 +8,35 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="Go to Home">
+    <img class="brand-logo" src="la.png" alt="LA" />
+    <span class="brand-text">Arrua</span>
+  </a>
+
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="menuPanel" aria-expanded="false">
+    <span class="menu-icon" aria-hidden="true"></span>
+  </button>
+</header>
+
+<!-- Overlay (clique fora pra fechar) -->
+<div class="menu-overlay" id="menuOverlay" hidden></div>
+
+<!-- Painel do menu -->
+<nav class="menu-panel" id="menuPanel" aria-label="Site menu" hidden>
+  <div class="menu-panel-head">
+    <div class="menu-title">Menu</div>
+    <button class="menu-close" id="menuClose" aria-label="Close menu">✕</button>
+  </div>
+
+  <a class="menu-link" href="index.html">🏠 Home</a>
+  <a class="menu-link" href="news.html">📰 Dashboard / News</a>
+  <a class="menu-link" href="sobre.html">👤 About / Resume</a>
+
+  <div class="menu-sep"></div>
+
+</nav>
+
 <body>
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="Go to Home">
@@ -152,9 +181,31 @@
                 </div>
               </div>
             </div>
+=======
 
-          </div>
-        </section>
+      <!-- CENTER COLUMN -->
+      <section class="card card-clock" id="clock-card">
+        <div class="clock-inner">
+          <div id="clock" class="clock-time">00:00:00</div>
+          <div id="date" class="clock-date">domingo, 1 de janeiro</div>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN (stack) -->
+      <aside class="right-column">
+
+        <section class="card card-links" id="links-1">
+          <div class="card-inner is-center">
+            <h3 class="card-title">Links</h3>
+
+            <ul class="link-list">
+              <li><a href="https://onedrive.live.com/personal/be7c329acde20099/_layouts/15/Doc.aspx?sourcedoc={d3fb22b0-4912-45eb-b2b4-6447f4291ba6}&action=edit&wd=target%28Capa.one%7C9fc22ce0-eb50-467d-adaf-79f94b65d101%2FLuiz%20Arrua%7C6217daab-aa67-413b-af9a-0a1b224355e6%2F%29&wdorigin=NavigationUrl" target="_blank" rel="noopener">Diário OneDrive</a></li>
+              <li><a href="https://docs.google.com/spreadsheets/d/1uKekN2-WY7RXxY40FsPXkbK_Vlq3EmYGDdpBXBT5-eA/edit?gid=394255261#gid=394255261" target="_blank" rel="noopener">Arrua</a></li>
+              <li><a href="https://docs.google.com/spreadsheets/d/1G1gyhcbcL85jdhMs5vczmdw6Z9q0SVdNOudOGcQGuTo/edit?gid=0#gid=0" target="_blank" rel="noopener">Senhas</a></li>
+              <li><a href="https://docs.google.com/spreadsheets/d/165jWGd2kUtaTsKwnb6eV3omBdIJgGSQP2yThbRM2fig/edit?gid=1386427151#gid=1386427151" target="_blank" rel="noopener">Rotina</a></li>
+              <li><a href="https://docs.google.com/document/d/1HOkRRWSmfv0APuFFdrRwnjnmUm3n8DtMWDcXrI5wmks/edit?tab=t.kjjg5e5lezlj" target="_blank" rel="noopener">Tudo!</a></li>
+              <li><a href="https://docs.google.com/spreadsheets/d/1CqojjkZJM2e8eSAlAYsmq5snYd9BlJlreHAlZ6e0BKw/edit?gid=708432143#gid=708432143" target="_blank" rel="noopener">Lista de Compras</a></li>
+            </ul>
 
         <section class="card card-links" id="links-1">
           <div class="card-inner is-center">
@@ -189,6 +240,41 @@
                   <a href="https://docs.google.com/spreadsheets/d/1G7bHiuVUWqJ61MuV7EvU_lIzpiA6ZEJa_Kq3VxUg3FU/edit?resourcekey=&gid=75022154#gid=75022154" target="_blank" rel="noopener">Respostas</a>
                 </div>
               </div>
+            </div>
+
+=======
+        <section class="card card-shortcuts" id="links-2">
+          <div class="card-inner is-center">
+            <h3 class="card-title">Atalhos</h3>
+
+            <ul class="link-list is-compact">
+              <li><a href="https://docs.google.com/spreadsheets/d/1SqUu1fw5SgwHiwha3lLJC5XAKqX1NOKkxcpnhI1cIxw/edit?gid=577845637#gid=577845637" target="_blank" rel="noopener">Contabilidade</a></li>
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScnhM3FXm_Ldw2VxMeZU0sBzpIp6tZ1FCJQqcM9OJ23kb57GQ/viewform" target="_blank" rel="noopener">Preencher Formulário</a></li>
+              <li><a href="https://docs.google.com/spreadsheets/d/14xSnJfiMm5ktOOBYdeN8qWvnDXacAAY9UThER-K92fY/edit?gid=1299908561#gid=1299908561" target="_blank" rel="noopener">Respostas Formulário</a></li>
+              <li><a href="https://docs.google.com/spreadsheets/d/184jn40iP1gwTZ081O0LuxaHslSxT2De7zglmwMdnjvc/edit?gid=1124843239#gid=1124843239" target="_blank" rel="noopener">Dívidas/Pêndencias</a></li>
+              <li><a href="https://docs.google.com/forms/d/1nqYJ5cDPsYzPOuxhciFTB2_BOsTkHl2w7WwrW-xespg/edit" target="_blank" rel="noopener">Edição Formulário</a></li>
+              <li><a href="https://docs.google.com/spreadsheets/d/1o8k9-iy3wgrdsQxs16KQmYtytnZeOC4DeQKD63SWoEE/edit?gid=324427797#gid=324427797" target="_blank" rel="noopener">iFood</a></li>
+            </ul>
+
+          </div>
+        </section>
+
+        <section class="card card-chooser" id="chooser-card">
+          <div class="card-inner">
+            <h3 class="card-title is-center">Escolha uma área</h3>
+            
+            <div class="chooser-stack">
+              <a class="chooser-item" href="news.html" aria-label="Ir para Painel / News">
+                <div class="chooser-icon">📰</div>
+                <div class="chooser-title">Painel / News</div>
+                <div class="chooser-desc">Notícias, clima, moedas e widgets.</div>
+              </a>
+
+              <a class="chooser-item" href="sobre.html" aria-label="Ir para Sobre / Currículos">
+                <div class="chooser-icon">👤</div>
+                <div class="chooser-title">Sobre / Currículos</div>
+                <div class="chooser-desc">Perfil público e currículo privado.</div>
+              </a>
             </div>
 
           </div>
