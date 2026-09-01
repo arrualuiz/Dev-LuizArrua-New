@@ -87,6 +87,37 @@ if (exists("clock") && exists("date")) {
   setInterval(updateClock, 1000);
 }
 
+function updateHeaderClock() {
+  const headerClocks = document.querySelectorAll("[data-header-clock]");
+  const headerDates = document.querySelectorAll("[data-header-date]");
+  if (!headerClocks.length && !headerDates.length) return;
+
+  const now = new Date();
+  const timeStamp = now.toLocaleTimeString("pt-BR", {
+    timeZone: TIMEZONE,
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+  const dateStamp = now.toLocaleDateString("pt-BR", {
+    timeZone: TIMEZONE,
+    weekday: "short",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+
+  headerClocks.forEach((el) => {
+    el.textContent = timeStamp;
+  });
+  headerDates.forEach((el) => {
+    el.textContent = dateStamp.replace(".", "");
+  });
+}
+
+updateHeaderClock();
+setInterval(updateHeaderClock, 1000);
+
 // =====================
 // CALENDAR (só se existir)
 // =====================

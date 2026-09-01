@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Currículo | Luiz Arrua</title>
+  <link rel="icon" type="image/png" href="la.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="cv-page">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Go to Home">
+      <img class="brand-logo" src="la.png" alt="LA" />
+      <span class="brand-text">Arrua</span>
+    </a>
+
+    <div class="topbar-clock" data-header-clock>00:00:00</div>
+
+    <div class="topbar-actions">
+      <div class="topbar-date" data-header-date>01/01/2026</div>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="menuPanel" aria-expanded="false">
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu-overlay" id="menuOverlay" hidden></div>
+
+  <nav class="menu-panel" id="menuPanel" aria-label="Site menu" hidden>
+    <div class="menu-panel-head">
+      <div class="menu-title">Menu</div>
+      <button class="menu-close" id="menuClose" aria-label="Close menu">x</button>
+    </div>
+
+    <a class="menu-link" href="index.html">Home</a>
+    <a class="menu-link" href="news.html">Dashboard / News</a>
+    <a class="menu-link" href="curriculo.html">Currículo oficial</a>
+    <a class="menu-link subtle" href="#inscricoes">Inscrições</a>
+    <a class="menu-link" href="bia.html">Bia</a>
+
+    <div class="menu-sep"></div>
+  </nav>
+
+  <div id="app">
+    <main class="cv-wrap cv-wrap-wide">
+      <section class="card cv-card cv-hero-card">
+        <div class="card-inner cv">
+          <div class="cv-header cv-header-hero">
+            <div class="cv-header-top">
+              <div>
+                <p class="cv-kicker">Data Analytics + BI + Automação + Integrações</p>
+                <h1 class="cv-name">Luiz Felipe Arrua Castilho</h1>
+                <p class="cv-role">Programador Pleno com base forte em suporte técnico, dados e APIs</p>
+              </div>
+
+              <div class="cv-contact">
+                <a href="mailto:luizarrua16@gmail.com">luizarrua16@gmail.com</a>
+                <span class="cv-dot">-</span>
+                <a href="tel:+5541991415164">(41) 99141-5164</a>
+                <span class="cv-dot">-</span>
+                <a href="https://www.linkedin.com/in/luizarrua/" target="_blank" rel="noopener">LinkedIn</a>
+                <span class="cv-dot">-</span>
+                <a href="https://github.com/arrualuiz" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+
+            <p class="cv-location">Curitiba - Paraná - Brasil</p>
+          </div>
+
+          <section class="cv-section cv-summary">
+            <h2 class="cv-title">Resumo profissional</h2>
+            <p class="cv-desc cv-lead">
+              Profissional com experiência em suporte técnico, gestão de inventários, automação de processos e análise de dados. Direciono minha carreira para Data Analytics e Business Intelligence, combinando visão técnica, curiosidade e capacidade de resolver problemas com eficiência.
+            </p>
+            <p class="cv-desc">
+              Na prática, uno Python, SQL/MySQL, Power BI, Excel avançado, APIs REST, JSON, webhooks e análise de logs para transformar operações manuais em fluxos mais claros, rastreáveis e úteis para o negócio.
+            </p>
+          </section>
+
+          <section class="cv-section">
+            <div class="cv-highlight-grid">
+              <article class="cv-highlight">
+                <span class="cv-metric">Dados</span>
+                <h3>Analytics e BI</h3>
+                <p>Dashboards, cruzamento de bases, indicadores operacionais e apoio à tomada de decisão.</p>
+              </article>
+
+              <article class="cv-highlight">
+                <span class="cv-metric">APIs</span>
+                <h3>Integrações</h3>
+                <p>Consumo de sistemas externos, webhooks, validação com Postman, JSON e troubleshooting.</p>
+              </article>
+
+              <article class="cv-highlight">
+                <span class="cv-metric">Ops</span>
+                <h3>Automação</h3>
+                <p>Rotinas em Python, Google Apps Script e organização de processos que reduzem trabalho manual.</p>
+              </article>
+
+              <article class="cv-highlight">
+                <span class="cv-metric">Tech</span>
+                <h3>Suporte N2</h3>
+                <p>Base sólida em atendimento técnico, incidentes críticos, documentação e relacionamento com cliente.</p>
+              </article>
+            </div>
+          </section>
+
+
+          <section class="cv-section">
+            <div class="cv-cert-strip">
+              <img src="assets/zenvia-pro-certified.png" alt="Certificado Zenvia PRO Certified - Luiz Felipe Arrua Castilho" />
+              <div>
+                <p class="cv-kicker">Certificação</p>
+                <h2 class="cv-title">Zenvia PRO Certified</h2>
+                <p class="cv-desc">Reconhecimento Zenvia PRO Certified emitido em maio/2026, reforçando minha atuação com soluções conversacionais, integrações e automação de fluxos.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="cv-section">
+            <h2 class="cv-title">Competências principais</h2>
+            <div class="cv-skill-columns">
+              <article class="cv-block">
+                <h3 class="cv-subtitle">Uso profissional</h3>
+                <div class="cv-tags">
+                  <span>APIs REST</span><span>Webhooks</span><span>JSON</span><span>Postman</span><span>JavaScript</span><span>Análise de logs</span><span>Levantamento com stakeholders</span>
+                </div>
+              </article>
+
+              <article class="cv-block">
+                <h3 class="cv-subtitle">Dados e automação</h3>
+                <div class="cv-tags">
+                  <span>Python</span><span>SQL</span><span>MySQL</span><span>Power BI</span><span>Excel avançado</span><span>Looker Studio</span><span>Google Apps Script</span>
+                </div>
+              </article>
+
+              <article class="cv-block">
+                <h3 class="cv-subtitle">Projetos e estudos</h3>
+                <div class="cv-tags">
+                  <span>Vue.js</span><span>Kotlin</span><span>TypeScript</span><span>Java</span><span>HTML</span><span>CSS</span><span>Scikit-Learn</span><span>Pandas</span>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="cv-section">
+            <h2 class="cv-title">Experiência</h2>
+
+            <article class="cv-item">
+              <div class="cv-item-head">
+                <div>
+                  <div class="cv-item-role">Zenvia - Programador Pleno</div>
+                  <div class="cv-item-sub">CLT</div>
+                </div>
+                <div class="cv-item-date">fev/2026 - atual</div>
+              </div>
+
+              <p class="cv-desc">Desenvolvimento de soluções conversacionais e integrações via APIs REST e webhooks, com foco em chatbots, automação de fluxos e consumo de sistemas externos.</p>
+
+              <ul class="cv-list">
+                <li>Configuração, estruturação e publicação de fluxos de chatbot em ambiente de produção.</li>
+                <li>Integrações com sistemas externos via API REST, tratamento de respostas JSON e testes com Postman.</li>
+                <li>Investigação de falhas, análise de logs e identificação de causa raiz em integrações.</li>
+                <li>Validação em homologação junto a stakeholders e apoio no onboarding técnico de clientes.</li>
+              </ul>
+            </article>
+
+            <article class="cv-item">
+              <div class="cv-item-head">
+                <div>
+                  <div class="cv-item-role">VorpTech - Líder de Suporte Técnico</div>
+                  <div class="cv-item-sub">CLT</div>
+                </div>
+                <div class="cv-item-date">fev/2023 - fev/2026</div>
+              </div>
+
+              <p class="cv-desc">Responsável técnico pela área de Suporte/Helpdesk, liderança de equipe, atendimento corporativo e estabilidade dos ambientes de TI.</p>
+
+              <div class="cv-grid">
+                <div class="cv-block">
+                  <h3 class="cv-subtitle">Liderança e atendimento</h3>
+                  <ul class="cv-list">
+                    <li>Supervisão de equipe técnica e estagiários.</li>
+                    <li>Priorização de demandas, suporte VIP e atendimentos críticos.</li>
+                    <li>Visitas presenciais recorrentes em cliente estratégico.</li>
+                  </ul>
+                </div>
+
+                <div class="cv-block">
+                  <h3 class="cv-subtitle">Inventário e automação</h3>
+                  <ul class="cv-list">
+                    <li>Inventário técnico em Milvus, Trend Micro e RMM Ninja.</li>
+                    <li>Auditoria de licenças e correções de inconsistências.</li>
+                    <li>Cruzamento de dados e automatizações com Python, SQL/MySQL e Power BI.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="cv-results">
+                <h3 class="cv-subtitle">Resultados</h3>
+                <ul class="cv-list">
+                  <li>Aumento da precisão do inventário com automações de dados.</li>
+                  <li>Redução de falhas recorrentes em backup.</li>
+                  <li>Padronização de procedimentos internos e melhoria na velocidade de atendimento.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cv-item cv-muted-item">
+              <div class="cv-item-head">
+                <div>
+                  <div class="cv-item-role">Telefônica (Vivo) - Atendimento ao Cliente</div>
+                  <div class="cv-item-sub">CLT</div>
+                </div>
+                <div class="cv-item-date">out/2018 - jul/2022</div>
+              </div>
+              <p class="cv-desc">Base em suporte N1, atendimento crítico e operação de alto volume, evoluindo para frentes de maior complexidade como Móvel Crítico, Cluster e Vivo V.</p>
+            </article>
+          </section>
+
+          <section class="cv-section">
+            <h2 class="cv-title">Formação e idiomas</h2>
+            <div class="cv-grid">
+              <article class="cv-item">
+                <div class="cv-item-role">Estatística e Ciência de Dados</div>
+                <div class="cv-item-sub">Universidade Federal do Paraná - Bacharelado em andamento - conclusão prevista: 07/2029</div>
+              </article>
+
+              <article class="cv-item">
+                <div class="cv-item-role">Análise e Desenvolvimento de Sistemas</div>
+                <div class="cv-item-sub">Pontifícia Universidade Católica do Paraná - Tecnólogo em andamento - conclusão prevista: 07/2027</div>
+              </article>
+
+              <article class="cv-item">
+                <div class="cv-item-role">Gestão da Informação</div>
+                <div class="cv-item-sub">Universidade Federal do Paraná - interrompido em 03/2022</div>
+              </article>
+
+              <article class="cv-item">
+                <div class="cv-item-role">Idiomas</div>
+                <div class="cv-tags"><span>Português nativo</span><span>Inglês intermediário</span><span>Espanhol intermediário</span></div>
+              </article>
+            </div>
+          </section>
+
+          <section class="cv-section cv-application-box" id="inscricoes">
+            <details class="cv-application-details">
+              <summary>Inscrições</summary>
+
+              <div class="cv-copy-grid">
+                <article class="cv-copy-card">
+                  <p class="cv-kicker">Headline equilibrada</p>
+                  <h3>Integrações + Dados</h3>
+                  <p>Programador | Integrações & APIs - Automação - Análise de Dados & BI | Python, SQL, Power BI, JavaScript</p>
+                </article>
+
+                <article class="cv-copy-card">
+                  <p class="cv-kicker">Headline com foco em dados</p>
+                  <h3>Data Analytics / BI</h3>
+                  <p>Análise de Dados & BI | Python, SQL, Power BI | Background em Integrações, APIs e Automação de Processos</p>
+                </article>
+
+                <article class="cv-copy-card">
+                  <p class="cv-kicker">Headline atual refinada</p>
+                  <h3>Chatbots + Integrações</h3>
+                  <p>Programador PL | Chatbots & Automação Conversacional | Integrações via API | JavaScript, JSON & Python para Dados</p>
+                </article>
+              </div>
+
+              <div class="cv-copy-stack">
+                <article class="cv-copy-card">
+                  <h3>Resumo curto - Dados/BI</h3>
+                  <p>Profissional em transição para Data Analytics e Business Intelligence, com base sólida em automação de processos e suporte técnico. Desenvolvo automações em Python, dashboards em Power BI e Looker Studio, e manipulo bases em SQL/MySQL. Tenho projeto próprio de Machine Learning com Python, Scikit-Learn e Pandas. Cursando Estatística e Ciência de Dados na Universidade Federal do Paraná e Análise e Desenvolvimento de Sistemas na Pontifícia Universidade Católica do Paraná.</p>
+                  <div class="cv-tags"><span>Análise de Dados</span><span>Business Intelligence</span><span>Python para Dados</span><span>SQL/MySQL</span></div>
+                </article>
+
+                <article class="cv-copy-card">
+                  <h3>Resumo curto - Desenvolvimento/Integrações</h3>
+                  <p>Programador com atuação em integrações via API, automação de fluxos e desenvolvimento back-end. Trabalho profissionalmente com JavaScript, JSON, APIs REST, Webhooks e Postman, desenvolvendo chatbots e conectando sistemas com foco em eficiência. Tenho projetos próprios em Python, Vue.js e Kotlin, e estudo Java e TypeScript. Cursando Análise e Desenvolvimento de Sistemas na Pontifícia Universidade Católica do Paraná.</p>
+                  <div class="cv-tags"><span>Integrações & APIs</span><span>Automação de Processos</span><span>Back-end</span><span>JavaScript/Python</span></div>
+                </article>
+
+                <article class="cv-copy-card">
+                  <h3>Resumo curto - Geral</h3>
+                  <p>Profissional com experiência em suporte técnico, automação de processos e análise de dados, hoje direcionando a carreira para Data Analytics e BI. Desenvolvo automações em Python, dashboards em Power BI e consultas em SQL/MySQL, além de atuar com integrações via APIs REST e JSON. Cursando Estatística e Ciência de Dados na Universidade Federal do Paraná e Análise e Desenvolvimento de Sistemas na Pontifícia Universidade Católica do Paraná.</p>
+                  <div class="cv-tags"><span>Análise de Dados</span><span>BI</span><span>Automação</span><span>Suporte Técnico N2</span></div>
+                </article>
+              </div>
+            </details>
+          </section>
+          <section class="cv-section">
+            <div class="cv-section-head">
+              <h2 class="cv-title">Projetos GitHub</h2>
+              <a class="cv-small-link" href="https://github.com/arrualuiz" target="_blank" rel="noopener">github.com/arrualuiz</a>
+            </div>
+
+            <div class="cv-project-grid">
+              <article class="cv-project">
+                <div class="cv-project-top"><h3>PUCPR Machine Learning</h3><span>Python</span></div>
+                <p>Exploração de dados, seleção de atributos e treinamento de modelos de machine learning.</p>
+                <a href="https://github.com/arrualuiz/PUCPRMachineLearning" target="_blank" rel="noopener">Ver repositório</a>
+              </article>
+
+              <article class="cv-project">
+                <div class="cv-project-top"><h3>Desafio QuiteJa</h3><span>Vue.js</span></div>
+                <p>Aplicação frontend dinâmica com foco em usabilidade, organização visual e performance.</p>
+                <a href="https://github.com/arrualuiz/desafio-quiteja" target="_blank" rel="noopener">Ver repositório</a>
+              </article>
+
+              <article class="cv-project">
+                <div class="cv-project-top"><h3>Android Notification Reader</h3><span>Kotlin</span></div>
+                <p>Projeto mobile para leitura de notificações Android e experimentação com automação pessoal.</p>
+                <a href="https://github.com/arrualuiz/AndroidNotificationReader" target="_blank" rel="noopener">Ver repositório</a>
+              </article>
+
+              <article class="cv-project">
+                <div class="cv-project-top"><h3>Finance Automation</h3><span>JavaScript</span></div>
+                <p>Automação relacionada a finanças pessoais, organização de rotina e integrações financeiras.</p>
+                <a href="https://github.com/arrualuiz/finance-automation" target="_blank" rel="noopener">Ver repositório</a>
+              </article>
+
+              <article class="cv-project">
+                <div class="cv-project-top"><h3>Open Finance API</h3><span>API</span></div>
+                <p>Experimentos e estrutura de estudo relacionados a Open Finance e consumo de APIs.</p>
+                <a href="https://github.com/arrualuiz/OpenFinanceAPI" target="_blank" rel="noopener">Ver repositório</a>
+              </article>
+
+              <article class="cv-project">
+                <div class="cv-project-top"><h3>Dev-LuizArrua-New</h3><span>Site</span></div>
+                <p>Site pessoal em HTML, CSS e JavaScript com dashboard, currículo e evolução para área privada.</p>
+                <a href="https://github.com/arrualuiz/Dev-LuizArrua-New" target="_blank" rel="noopener">Ver repositório</a>
+              </article>
+            </div>
+          </section>
+
+          
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="signature">Desenvolvido por <strong>Arrua 🚀</strong></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
